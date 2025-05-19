@@ -1,0 +1,20 @@
+<!-- privacy.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    {% load i18n %}
+    <meta charset="UTF-8">
+    <title>{% trans "Politica de privacidad" %}</title>
+    <link rel="stylesheet" href="{% static 'scripts/styles.css' %}">
+    <script src="{% static 'scripts/script.js' %}"></script>
+</head>
+<body class="privacy-body">
+    {% include 'partials/header.html' %}
+    <main class="privacy-main">
+        <h1 class="privacy-title">{% trans "Politica de privacidad" %}</h1>
+        
+    </main>
+    {% include 'partials/footer.html' %}
+</body>
+</html>

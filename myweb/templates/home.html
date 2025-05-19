@@ -1,0 +1,32 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    {% load i18n %}
+    <meta charset="UTF-8">
+    <title>{% trans "Home" %}</title>
+    <link rel="stylesheet" href="{% static 'scripts/styles.css' %}">
+    <script src="{% static 'scripts/script.js' %}"></script>
+</head>
+<body class="home-body">
+    <main class="home-main">
+        <div class="hero">
+            <div class="decor-square square-left"></div>
+            <div class="decor-square square-right"></div>
+            <img src="{% static 'assets/logo_size-noText.png' %}" alt="Logo Djangify" class="noTextLogoHome">
+            <div class="hero-text">
+                <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>Vivamus tincidunt vestibulum viverra.</strong></p>
+                <p>Nulla facilisi. Nullam et vehicula eros. Cras tristique mi sed tortor fringilla rhoncus. Pellentesque auctor rutrum ullamcorper.</p>
+                <p>Nam eu eros nibh. Aliquam ut nisi sit amet sapien bibendum malesuada eu a felis. Ut volutpat quam sit amet placerat consectetur.</p>
+            </div>
+            <div class="button-group">
+                <a href="{% url 'crear_proyecto' %}" class="btn_home_link">{% trans "Crea tu proyecto" %}</a>
+                <a href="https://github.com/AWS2/djangify-web" target="_blank" class="btn_home_link">{% trans "Source Code" %}</a>
+            </div>
+        </div>
+    </main>
+
+    {% include 'partials/footer.html' %}
+</body>
+</html>

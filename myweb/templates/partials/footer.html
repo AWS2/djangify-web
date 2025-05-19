@@ -1,0 +1,22 @@
+{% load static %}
+{% load i18n %}
+<footer class="footer">
+    <div class="multilengual">
+        <form id="language-form" action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="language" id="language-input">
+        </form>
+        <img src="{% static 'assets/spanish.png' %}" class="flag" onclick="setLanguage('es')" alt="Español">
+        <img src="{% static 'assets/english.png' %}" class="flag" onclick="setLanguage('en')" alt="English">
+        <img src="{% static 'assets/catalan.png' %}" class="flag" onclick="setLanguage('ca')" alt="Català">
+    </div>
+    <div class="legal">
+        <a href="/cookies" class="legal-link">{% trans "Politica Cookies" %}</a>
+        <a href="/privacy" class="legal-link">{% trans "Politica de Privacidad" %}</a>
+        <a href="/legal_advice" class="legal-link">{% trans "Aviso Legal" %}</a>
+        <a href="/terms_use" class="legal-link">{% trans "Términos y Condiciones de Uso" %}</a>
+    </div>
+    <div class="copyright">
+        <p class="footer-text">Djangify &copy; 2025</p>
+    </div>
+</footer>

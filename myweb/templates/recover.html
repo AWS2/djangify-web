@@ -1,0 +1,49 @@
+<!-- recover.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    {% load i18n %}
+    <meta charset="UTF-8">
+    <title>{% trans "Recuperar contraseña" %}</title>
+    <link rel="stylesheet" href="{% static '/scripts/styles.css' %}">
+    <script src="{% static '/scripts/script.js' %}"></script>
+</head>
+<body class="recover-body">
+    {% include 'partials/header.html' %}
+    
+    <div class="recover-container">
+        <aside class="recover-aside">
+            <img src="{% static 'assets/background.jpg' %}" alt="Imagen de bienvenida">
+        </aside>
+
+        <main class="recover-main">
+            <div class="recover-box">
+                <img src="{% static 'assets/logo_size-noText.png' %}" alt="Logo Djangify" class="noTextLogo">
+                <h1>{% trans "Recuperar contraseña:" %}</h1>
+                <p>{% trans "Para recuperar tu contraseña necesitaremos tu correo " %}
+                    <br> {% trans "para enviarte un correo con un codigo que utilizaras " %}
+                    <br> {% trans "para actualizar tu contraseña" %}</p>
+
+                {% block content %}
+                    <form method="post">
+                        {% csrf_token %}
+                        <p>
+                            <label for="email">{% trans "Correo electrónico: "%}</label>
+                            <input type="email" class="form-recover-input" name="email" required>
+                        </p>
+                        <button type="submit">{% trans "Recuperar" %}</button>
+                    </form>
+                {% endblock %}
+
+                <p class="links">
+                    {% trans "¿Ya tienes cuenta?" %} <a href="/login">{% trans "Inicia sesión aquí" %}</a><br>
+                    {% trans "¿No tienes cuenta? " %}<a href="/register">{% trans "Crea una aquí" %}</a>
+                </p>
+            </div>
+        </main>
+    </div>
+
+    {% include 'partials/footer.html' %}
+</body>
+</html>

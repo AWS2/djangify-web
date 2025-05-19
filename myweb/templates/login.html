@@ -1,0 +1,43 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    {% load i18n %}
+    <meta charset="UTF-8">
+    <title>{% trans "Iniciar sesión" %}</title>
+    <link rel="stylesheet" href="{% static 'scripts/styles.css' %}">
+    <script src="{% static 'scripts/script.js' %}"></script>
+</head>
+<body class="login-body">
+    {% include 'partials/header.html' %}
+    
+    <div class="login-container">
+        <aside class="login-aside">
+            <img src="{% static 'assets/background.jpg' %}" alt="Imagen de bienvenida">
+        </aside>
+
+        <main class="login-main">
+            <div class="login-box">
+                <img src="{% static 'assets/logo_size-noText.png' %}" alt="Logo Djangify" class="noTextLogo">
+                <h1>{% trans "¿Tienes cuenta?" %}<br>{% trans "¡Inicia sesión!" %}</h1>
+
+                {% block content %}
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">{% trans "Iniciar sesión" %}</button>
+                    </form>
+                {% endblock %}
+
+                <p class="links">
+                    {% trans "¿No tienes cuenta? " %}<a href="/signin">{% trans "Crea una aquí" %}</a><br>
+                    <a href="/recover">{% trans "¿Olvidaste tu contraseña? " %}</a>
+                </p>
+            </div>
+        </main>
+    </div>
+
+    {% include 'partials/footer.html' %}
+</body>
+</html>

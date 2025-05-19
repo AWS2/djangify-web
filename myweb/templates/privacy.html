@@ -1,0 +1,80 @@
+<!-- privacy.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    {% load i18n %}
+    <meta charset="UTF-8">
+    <title>{% trans "Politica de privacidad" %}</title>
+    <link rel="stylesheet" href="{% static 'scripts/styles.css' %}">
+    <script src="{% static 'scripts/script.js' %}"></script>
+</head>
+<body class="privacy-body">
+    {% include 'partials/header.html' %}
+    <main class="privacy-main">
+        <h1 class="privacy-title">{% trans "Politica de privacidad" %}</h1>
+
+        <section>
+            <p>{% trans "Fecha de entrada en vigor: 18 de mayo de 2025" %}</p>
+
+            <h2>{% trans "1. Responsable del tratamiento" %}</h2>
+            <p>{% trans "Los responsables del tratamiento de sus datos personales son:" %}</p>
+            <p>{% trans "Enric Mieza y Toni Verges" %}<br>
+               {% trans "Correo electrónico de contacto:" %} [incluir email de contacto]</p>
+
+            <h2>{% trans "2. Datos que recopilamos" %}</h2>
+            <p>{% trans "En Djangify recogemos los siguientes datos personales:" %}</p>
+            <ul>
+                <li>{% trans "Correo electrónico, cuando el usuario se registra o inicia sesión." %}</li>
+                <li>{% trans "Datos de navegación mediante cookies analíticas (por ejemplo, páginas visitadas, tiempo de permanencia, navegador utilizado, etc.)." %}</li>
+            </ul>
+
+            <h2>{% trans "3. Finalidad del tratamiento" %}</h2>
+            <p>{% trans "Tratamos sus datos con las siguientes finalidades:" %}</p>
+            <ul>
+                <li>{% trans "Gestionar el acceso y uso de cuentas de usuario registradas." %}</li>
+                <li>{% trans "Responder a consultas o incidencias si nos contacta." %}</li>
+                <li>{% trans "Obtener estadísticas de uso del sitio mediante Google Analytics, de forma anónima y agregada." %}</li>
+            </ul>
+
+            <h2>{% trans "4. Base legal para el tratamiento" %}</h2>
+            <p>{% trans "La base legal para el tratamiento de sus datos es:" %}</p>
+            <ul>
+                <li>{% trans "Su consentimiento, otorgado al registrarse o al aceptar el uso de cookies." %}</li>
+                <li>{% trans "La ejecución de un contrato, en el caso del uso de la funcionalidad de login." %}</li>
+                <li>{% trans "Interés legítimo, en el caso de cookies necesarias para el funcionamiento del sitio." %}</li>
+            </ul>
+
+            <h2>{% trans "5. Destinatarios de los datos" %}</h2>
+            <p>{% trans "No se cederán datos a terceros, salvo obligación legal." %}</p>
+            <p>{% trans "El único tercero con acceso a datos es:" %}</p>
+            <ul>
+                <li>{% trans "Google LLC, a través del servicio Google Analytics (ver política de privacidad: " %}<a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a>).</li>
+            </ul>
+            <p>{% trans "Google puede transferir datos a EE.UU. bajo cláusulas contractuales tipo aprobadas por la Comisión Europea." %}</p>
+
+            <h2>{% trans "6. Conservación de los datos" %}</h2>
+            <p>{% trans "Conservamos sus datos personales mientras tenga una cuenta activa o mientras sea necesario para cumplir con la finalidad para la que fueron recopilados. Posteriormente, serán eliminados o anonimizados." %}</p>
+
+            <h2>{% trans "7. Derechos del usuario" %}</h2>
+            <p>{% trans "Usted tiene derecho a:" %}</p>
+            <ul>
+                <li>{% trans "Acceder a sus datos personales." %}</li>
+                <li>{% trans "Solicitar su rectificación o supresión." %}</li>
+                <li>{% trans "Limitar u oponerse a su tratamiento." %}</li>
+                <li>{% trans "Retirar su consentimiento en cualquier momento." %}</li>
+                <li>{% trans "Presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es)." %}</li>
+            </ul>
+            <p>{% trans "Puede ejercer sus derechos escribiéndonos a:" %} [incluir email]</p>
+
+            <h2>{% trans "8. Menores de edad" %}</h2>
+            <p>{% trans "Este sitio web no está dirigido a menores de 14 años. No recopilamos conscientemente información personal de menores." %}</p>
+
+            <h2>{% trans "9. Cambios en esta política" %}</h2>
+            <p>{% trans "Nos reservamos el derecho de modificar esta política para adaptarla a futuras novedades legales o técnicas. Le recomendamos revisarla periódicamente." %}</p>
+        </section>
+
+    </main>
+    {% include 'partials/footer.html' %}
+</body>
+</html>

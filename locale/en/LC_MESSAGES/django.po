@@ -1,0 +1,139 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-18 03:05+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: myweb/templates/home.html:8
+msgid "Home"
+msgstr ""
+
+#: myweb/templates/home.html:24
+msgid "Crea tu proyecto"
+msgstr ""
+
+#: myweb/templates/home.html:25
+msgid "Source Code"
+msgstr ""
+
+#: myweb/templates/login.html:8 myweb/templates/login.html:29
+msgid "Iniciar sesión"
+msgstr "Log in"
+
+#: myweb/templates/login.html:23
+msgid "¿Tienes cuenta?"
+msgstr "Do you have an account?"
+
+#: myweb/templates/login.html:23
+msgid "¡Inicia sesión!"
+msgstr "Log in!"
+
+#: myweb/templates/login.html:34 myweb/templates/recover.html:41
+msgid "¿No tienes cuenta? "
+msgstr "Don't have an account? "
+
+#: myweb/templates/login.html:34 myweb/templates/recover.html:41
+msgid "Crea una aquí"
+msgstr "Create one here"
+
+#: myweb/templates/login.html:35
+msgid "¿Olvidaste tu contraseña? "
+msgstr "Forgot your password?"
+
+#: myweb/templates/partials/footer.html:14
+msgid "Politica Cookies"
+msgstr "Cookies Policy"
+
+#: myweb/templates/partials/footer.html:15
+msgid "Politica de Privacidad"
+msgstr "Privacy Policy"
+
+#: myweb/templates/partials/footer.html:16
+msgid "Aviso Legal"
+msgstr "Legal Notice"
+
+#: myweb/templates/partials/footer.html:17
+msgid "Términos y Condiciones de Uso"
+msgstr "Terms and Conditions of Use"
+
+#: myweb/templates/recover.html:8
+msgid "Recuperar contraseña"
+msgstr "Recover password"
+
+#: myweb/templates/recover.html:23
+msgid "Recuperar contraseña:"
+msgstr "Recover password:"
+
+#: myweb/templates/recover.html:24
+msgid "Para recuperar tu contraseña necesitaremos tu correo "
+msgstr "To recover your password we need your email "
+
+#: myweb/templates/recover.html:25
+msgid "para enviarte un correo con un codigo que utilizaras "
+msgstr "so we can send you an email with a code you will use "
+
+#: myweb/templates/recover.html:26
+msgid "para actualizar tu contraseña"
+msgstr "to update your password"
+
+#: myweb/templates/recover.html:32 myweb/templates/signin.html:33
+msgid "Correo electrónico: "
+msgstr "Email: "
+
+#: myweb/templates/recover.html:35
+msgid "Recuperar"
+msgstr "Recover"
+
+#: myweb/templates/recover.html:40 myweb/templates/signin.html:49
+msgid "¿Ya tienes cuenta?"
+msgstr "Already have an account?"
+
+#: myweb/templates/recover.html:40 myweb/templates/signin.html:49
+msgid "Inicia sesión aquí"
+msgstr "Log in here"
+
+#: myweb/templates/signin.html:8
+msgid "Registro"
+msgstr "Sign up"
+
+#: myweb/templates/signin.html:23
+msgid "¡Bienvenido!"
+msgstr "Welcome!"
+
+#: myweb/templates/signin.html:23
+msgid "Regístrate para empezar"
+msgstr "Sign up to get started"
+
+#: myweb/templates/signin.html:29
+msgid "Nombre de usuario: "
+msgstr "Username: "
+
+#: myweb/templates/signin.html:37
+msgid "Contraseña: "
+msgstr "Password: "
+
+#: myweb/templates/signin.html:41
+msgid "Confirmar contraseña: "
+msgstr "Confirm password: "
+
+#: myweb/templates/signin.html:44
+msgid "Registrarse"
+msgstr "Sign up"
+
+#: myweb/templates/signin.html:50
+msgid "¿Olvidaste tu contraseña?"
+msgstr "Forgot your password?"

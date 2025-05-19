@@ -1,0 +1,58 @@
+<!-- signin.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    {% load i18n %}
+    <meta charset="UTF-8">
+    <title>{% trans "Registro" %}</title>
+    <link rel="stylesheet" href="{% static '/scripts/styles.css' %}">
+    <script src="{% static '/scripts/script.js' %}"></script>
+</head>
+<body class="signin-body">
+    {% include 'partials/header.html' %}
+    
+    <div class="signin-container">
+        <aside class="signin-aside">
+            <img src="{% static 'assets/background.jpg' %}" alt="Imagen de bienvenida">
+        </aside>
+
+        <main class="signin-main">
+            <div class="signin-box">
+                <img src="{% static 'assets/logo_size-noText.png' %}" alt="Logo Djangify" class="noTextLogo">
+                <h1>{% trans "¡Bienvenido!" %}<br>{% trans "Regístrate para empezar" %}</h1>
+
+                {% block content %}
+                    <form method="post">
+                        {% csrf_token %}
+                        <p>
+                            <label for="username">{% trans "Nombre de usuario: "%}</label>
+                            <input type="text" class="form-signin-input" name="username" required>
+                        </p>
+                        <p>
+                            <label for="email">{% trans "Correo electrónico: "%}</label>
+                            <input type="email" class="form-signin-input" name="email" required>
+                        </p>
+                        <p>
+                            <label for="password">{% trans "Contraseña: "%}</label>
+                            <input type="password" class="form-signin-input"  name="password" required>
+                        </p>
+                        <p>
+                            <label for="password_confirm">{% trans "Confirmar contraseña: "%}</label>
+                            <input type="password" class="form-signin-input" name="password_confirm" required>
+                        </p>
+                        <button type="submit">{% trans "Registrarse" %}</button>
+                    </form>
+                {% endblock %}
+
+                <p class="links">
+                    {% trans "¿Ya tienes cuenta?" %} <a href="/login">{% trans "Inicia sesión aquí" %}</a><br>
+                    <a href="/recover">{% trans "¿Olvidaste tu contraseña?" %}</a>
+                </p>
+            </div>
+        </main>
+    </div>
+
+    {% include 'partials/footer.html' %}
+</body>
+</html>

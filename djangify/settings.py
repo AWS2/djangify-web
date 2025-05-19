@@ -9,24 +9,51 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+import environ
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# AlejandroSoPa, 15/05/2025: Configuracion para el .env 
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
+# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ida=e!xp2dg%&=0_$q6vx68@z=&^0*fn@4&9bsh)^7$*2t2#tx'
+SECRET_KEY = env('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
+
+# AlejandroSoPa, 16/05/2025: configuracion para el multiples idiomas
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True
+
+LANGUAGE_CODE = 'es'  # Idioma por defecto, por ejemplo español
+
+LANGUAGES = [
+    ('es', 'Español'),
+    ('en', 'English'),
+    ('ca', 'Català'),
+    # Puedes agregar más idiomas aquí
+]
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -43,8 +70,10 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -75,14 +104,19 @@ WSGI_APPLICATION = 'djangify.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': env('DATABASE_NAME'),
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASSWORD'),
+        'HOST': env('DATABASE_HOST'),
+        'PORT': env('DATABASE_PORT'),
     }
 }
 
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -115,9 +149,22 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# AlejandroSoPa, 15/05/2025: Confiuracion para el modelo de usuario personalizado
+AUTH_USER_MODEL = 'myweb.Usuario'
+
+
+# AlejandroSoPa, 15/05/2025: Configuracion Adicional para la redirección de URLs
+LOGIN_REDIRECT_URL = '/'  # o donde quieras redirigir después de iniciar sesión
+LOGOUT_REDIRECT_URL = '/login/'  # redirección tras logout
+
+# AlejandroSoPa, 15/05/2025: Configuracion para las rutas de los archivos estaticos
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / "static/"
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'myweb/static'),]
