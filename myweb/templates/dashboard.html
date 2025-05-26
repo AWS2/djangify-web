@@ -1,39 +1,63 @@
+<!-- dashboard.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    {% load static %}
+    {% load i18n %}
     <meta charset="UTF-8">
-    <title>Dashboard</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            background-color: #f0f2f5;
-            padding: 2rem;
-        }
-        .card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        .welcome {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
-        .data {
-            font-size: 1rem;
-        }
-    </style>
+    <title>{% trans "Dashboard" %}</title>
+    <link rel="stylesheet" href="{% static 'scripts/styles.css' %}">
+    <script src="{% static 'scripts/script.js' %}"></script>
 </head>
-<body>
-    <div class="card">
-        <div class="welcome">Hola, {{ request.user.username }} 👋</div>
-        <div class="data">
-            <p>Tu rol: <strong>{{ request.user.rol }}</strong></p>
-            <p>Esta es tu área privada de usuario. Aquí podrías mostrar estadísticas, configuración, o cualquier contenido personalizado.</p>
-            <p>Dato random: El pulpo tiene tres corazones.</p>
+<body class="dashboard-body">
+    {% include 'partials/header.html' %}
+
+    <nav class="dashboard-nav">
+        <img src="{% static 'assets/profile_picture.png' %}" alt="Profile Picture" class="profile_picture">
+        <p>
+            {{ request.user.username }}<br>
+            <strong>{{ request.user.rol }}</strong>
+        </p>
+    </nav>
+
+    <main class="dashboard-main">
+        <div class="dashboard-header">
+            <h1>{% trans "Proyectos" %}</h1>
+            {% if projects|length < 6 or request.user.rol == 'PLUS' %}
+                <a href="{% url 'new_project' %}" class="btn_dashboardb_link">{% trans "Crea tu proyecto" %}</a>
+            {% else %}
+                <a class="btn_dashboardb_link">
+                    {% trans "Límite alcanzado" %}
+                </a>
+            {% endif %}
         </div>
-    </div>
+        <div class="project-list">
+            {% for project in projects %}
+                <div class="card-project-item div{{ forloop.counter }}">
+                    <div class="card-header">
+                        <span class="project-title">{{ project.name }}</span>
+
+                        <!-- Icono editar (lápiz) -->
+                        <svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M3 17.25V21h3.75l11.06-11.06-3.75-3.75L3 17.25zm14.81-9.36c.39-.39.39-1.02 0-1.41l-2.29-2.29a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                        </svg>
+
+                        <!-- Icono eliminar (papelera) -->
+                        <svg class="delete-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm3.46-9.12h1.41v6.59H9.46V9.88zm4.67 0h1.41v6.59h-1.41V9.88zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/>
+                        </svg>
+                    </div>
+                    <div class="card-body">
+                        <img src="{% static 'assets/background.jpg' %}" alt="Backgroud Project" class="background_project">
+                    </div>
+                </div>
+            {% empty %}
+                <p>{% trans "Todavía no hay proyectos" %}</p>
+            {% endfor %}
+        </div>
+        
+    </main>
+
+    {% include 'partials/footer.html' %}
 </body>
 </html>

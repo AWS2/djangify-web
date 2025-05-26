@@ -32,15 +32,14 @@ urlpatterns += i18n_patterns(
     path('home/', home, name='home'),
     path('admin/', admin.site.urls),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='home'), name='logout'),
     path('signin/', signin, name='signin'),
     path('dashboard/', dashboard, name='dashboard'),
     path('recover/', recover, name='recover'),
     path('reset_password/', auth_views.PasswordResetView.as_view(template_name='reset_password.html'), name='reset_password'),
-    path('crear_proyecto/', crear_proyecto, name='crear_proyecto'),
     path('cookies/', cookies, name='cookies'),
     path('terms_use/', terms_use, name='terms'),
     path('privacy/', privacy, name='privacy'),
     path('legal_advice/', legal_advice, name='legal_advice'),
-    
+    path('new_project/', new_project, name='new_project'),
 )

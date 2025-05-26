@@ -3,7 +3,7 @@ from django.contrib.auth.hashers import make_password
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
-from .models import Usuario
+from .models import Usuario, Project
 
 # Create your views here.
 def signin(request):
@@ -41,7 +41,8 @@ def signin(request):
 
 @login_required(login_url='login')
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    projects = Project.objects.filter(user=request.user)
+    return render(request, 'dashboard.html', {'projects': projects})
 
 def recover(request):
     return render(request, 'recover.html')
@@ -50,8 +51,28 @@ def home(request):
     return render(request, 'home.html')
 
 @login_required(login_url='login')  # URL a donde redirigir si no está logueado
-def crear_proyecto(request):
-    return render(request, 'dashboard.html')
+def new_project(request):
+    # Lógica para determinar el límite
+    max_projects = 6 if request.user.rol == 'GRATIS' else 12
+
+    if request.method == 'POST':
+        current_project_count = Project.objects.filter(user=request.user).count()
+        if current_project_count >= max_projects:
+            messages.error(request, f"Has alcanzado el límite de {max_projects} proyectos.")
+            return redirect('dashboard')
+
+        name = request.POST.get('name')
+        description = request.POST.get('description')
+
+        if not name:
+            messages.error(request, "El nombre del proyecto es obligatorio.")
+            return render(request, 'new_project.html')
+
+        Project.objects.create(user=request.user, name=name, description=description)
+        messages.success(request, "Proyecto creado correctamente.")
+        return redirect('dashboard')
+
+    return render(request, 'new_project.html')
 
 def cookies(request):
     return render(request, 'cookies.html')
