@@ -37,19 +37,21 @@
                     <div class="card-header">
                         <span class="project-title">{{ project.name }}</span>
 
-                        <!-- Icono editar (lápiz) -->
-                        <svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path fill="currentColor" d="M3 17.25V21h3.75l11.06-11.06-3.75-3.75L3 17.25zm14.81-9.36c.39-.39.39-1.02 0-1.41l-2.29-2.29a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                        </svg>
-
                         <!-- Icono eliminar (papelera) -->
                         <svg class="delete-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path fill="currentColor" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm3.46-9.12h1.41v6.59H9.46V9.88zm4.67 0h1.41v6.59h-1.41V9.88zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/>
                         </svg>
                     </div>
+
                     <div class="card-body">
                         <img src="{% static 'assets/background.jpg' %}" alt="Backgroud Project" class="background_project">
                     </div>
+
+                    <!-- Icono editar (lápiz) fuera del header -->
+                    <svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-label="Editar" role="img">
+                        <title>Editar</title>
+                        <path d="M17.414 2.586a2 2 0 0 0-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 0 0 0-2.828zM5 15h10a1 1 0 1 1 0 2H5a1 1 0 1 1 0-2z"/>
+                    </svg>
                 </div>
             {% empty %}
                 <p>{% trans "Todavía no hay proyectos" %}</p>

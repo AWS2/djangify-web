@@ -1,0 +1,20 @@
+<!-- new_project.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    {% load i18n %}
+    <meta charset="UTF-8">
+    <title>{% trans "Nuevo Proyecto" %}</title>
+    <link rel="stylesheet" href="{% static 'scripts/styles.css' %}">
+    <script src="{% static 'scripts/script.js' %}"></script>
+</head>
+<body class="new_project-body">
+    {% include 'partials/header.html' %}
+    <main class="new_project-main">
+        <h1 class="new_project-title">{% trans "Nuevo Proyecto" %}</h1>
+        
+    </main>
+    {% include 'partials/footer.html' %}
+</body>
+</html>

@@ -160,8 +160,9 @@ AUTH_USER_MODEL = 'myweb.Usuario'
 
 
 # AlejandroSoPa, 15/05/2025: Configuracion Adicional para la redirección de URLs
-LOGIN_REDIRECT_URL = '/'  # o donde quieras redirigir después de iniciar sesión
+LOGIN_REDIRECT_URL = '/dashboard/'  # o donde quieras redirigir después de iniciar sesión
 LOGOUT_REDIRECT_URL = '/login/'  # redirección tras logout
+
 
 # AlejandroSoPa, 15/05/2025: Configuracion para las rutas de los archivos estaticos
 STATIC_URL = '/static/'
