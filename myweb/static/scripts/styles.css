@@ -725,12 +725,6 @@ button:hover {
     text-align: center;
 }
 
-.new_project-main a {
-    color: #5C51D1;
-    font-size: 14px;
-    text-decoration: none;
-}
-
 .chat-box {
     background-color: white;
     padding: 15px;
@@ -764,4 +758,27 @@ button:hover {
     border: none;
     border-radius: 8px;
     cursor: pointer;
+}
+
+pre code {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    padding: 1em;
+    display: block;
+    overflow-x: auto;
+    border-radius: 8px;
+    font-family: monospace;
+}
+
+.btn_dashboard_link {
+    background-color: #5C51D1;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    display: inline-block;
 }
