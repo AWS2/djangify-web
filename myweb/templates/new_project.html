@@ -11,10 +11,27 @@
 </head>
 <body class="new_project-body">
     {% include 'partials/header.html' %}
+
     <main class="new_project-main">
         <h1 class="new_project-title">{% trans "Nuevo Proyecto" %}</h1>
-        
+
+        <div class="chat-box">
+            {% for msg in messages %}
+                <div class="chat-message {{ msg.role }}">
+                    <strong>{{ msg.role|title }}:</strong> {{ msg.content }}
+                </div>
+            {% empty %}
+                <div class="chat-message assistant">Hola 👋, ¿en qué puedo ayudarte con tu proyecto?</div>
+            {% endfor %}
+        </div>
+
+        <form method="POST" action="{% url 'chat_llama' %}">
+            {% csrf_token %}
+            <textarea name="user_input" rows="3" style="width:100%;" placeholder="Escribe tu mensaje aquí...">{{ user_input }}</textarea>
+            <button type="submit" class="chat-submit-btn">Enviar</button>
+        </form>
     </main>
+
     {% include 'partials/footer.html' %}
 </body>
 </html>

@@ -27,6 +27,60 @@
         </div>
     </main>
 
+    <div class="home-about">
+        <h2>About</h2>
+        <div class="home-about-content">
+            <div class="home-about-text">
+                <p>Este proyecto representa una apuesta innovadora por la automatización 
+                    inteligente del despliegue seguro de aplicaciones web basadas en Django. 
+                    El objetivo es claro: reducir la complejidad técnica que habitualmente 
+                    conlleva poner en producción una aplicación, y hacerlo posible con la 
+                    ayuda de la inteligencia artificial. Gracias a esta solución, 
+                    cualquier equipo técnico puede centrarse en desarrollar valor, 
+                    mientras la plataforma se encarga de la configuración, la 
+                    seguridad y la infraestructura.
+                    <br><br>
+                    La herramienta desarrollada permite generar proyectos Django completos 
+                    de forma asistida, incluyendo la creación de modelos y paneles de administración, 
+                    todo ello con soporte de una IA local —basada en marIA— que guía y 
+                    agiliza cada paso mediante prompts personalizados y generación de código 
+                    automatizada. Esta IA no solo acelera el desarrollo, sino que también ayuda 
+                    a mantener buenas prácticas y coherencia en toda la arquitectura del sistema.
+                    <br><br>
+                    Una vez generada la aplicación, el sistema automatiza su contenedorización 
+                    utilizando Docker, y su posterior despliegue seguro en entornos escalables 
+                    como Docker Swarm o Kubernetes. Se incorporan herramientas modernas de 
+                    automatización como Ansible y GitHub Actions, que garantizan un flujo 
+                    CI/CD robusto y reproducible desde el primer commit hasta la producción.
+                    <br><br>
+                    La seguridad es un pilar fundamental del proyecto. Se integran herramientas 
+                    como OWASP ZAP, Nmap y Metasploit para el escaneo de vulnerabilidades y la 
+                    realización de pruebas de penetración controladas. Además, se configura un 
+                    sistema de protección basado en cortafuegos (iptables/UFW), cifrado de datos 
+                    sensibles con GPG y validación automatizada de los requisitos de seguridad 
+                    antes de cada despliegue.
+                    <br><br>
+                    El ecosistema se completa con una solución de monitorización en tiempo real 
+                    mediante Prometheus y Grafana, lo que permite tener una visión clara del 
+                    rendimiento y la seguridad del sistema. Desde la creación de dominios 
+                    personalizados hasta la orquestación de múltiples servicios, todo está diseñado 
+                    para facilitar la escalabilidad y la gestión profesional de aplicaciones Django 
+                    en producción.
+                    <br><br>
+                    Este proyecto no es solo una herramienta técnica; es una plataforma educativa, 
+                    colaborativa y potente que demuestra cómo la inteligencia artificial puede 
+                    integrarse de forma natural en el ciclo de vida de desarrollo de software 
+                    moderno. Con un enfoque práctico y enfocado a resultados, el sistema busca 
+                    revolucionar la forma en que se despliegan aplicaciones web, ofreciendo una 
+                    experiencia segura, automatizada y preparada para los desafíos del mundo real.
+                </p>
+            </div>
+            <aside class="home-aside">
+                <img src="{% static 'assets/background.jpg' %}" alt="Imagen de bienvenida">
+            </aside>
+        </div>
+    </div>
+
     {% include 'partials/footer.html' %}
 </body>
 </html>

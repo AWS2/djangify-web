@@ -42,4 +42,5 @@ urlpatterns += i18n_patterns(
     path('privacy/', privacy, name='privacy'),
     path('legal_advice/', legal_advice, name='legal_advice'),
     path('new_project/', new_project, name='new_project'),
+    path('asistente/', chat_llama, name='chat_llama'),
 )
