@@ -176,7 +176,7 @@ def new_project(request):
             prompt += "Asistente:"
 
             response = requests.post(
-                f"http://localhost:{env('PORT_IA')}/api/generate",
+                f"http://{env('URL_IA')}:{env('PORT_IA')}/api/generate",
                 json={
                     'model': env('MODEL_IA'),
                     'prompt': prompt
