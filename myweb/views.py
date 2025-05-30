@@ -72,73 +72,142 @@ def dashboard(request):
 def recover(request):
     return render(request, 'recover.html')
 
-@login_required(login_url='login')  # URL a donde redirigir si no está logueado
+@login_required(login_url='login')
 def new_project(request):
-    if request.method == "POST":
-        # Cargar historial y contexto
+    if request.method == "POST" and request.headers.get('x-requested-with') == 'XMLHttpRequest':
         if 'llama_chat' not in request.session:
             request.session['llama_chat'] = []
 
         if 'llama_system' not in request.session:
             request.session['llama_system'] = (
-                    "Eres un asistente experto en Django. "
-                    "Tu especialidad son los archivos models.py y admin.py. "
-                    "No debes responder preguntas que no estén relacionadas con Django. "
-                    "Si alguien te pregunta otra cosa, indícale que solo puedes ayudar con Django."
-                    "Si alguien te pide un modelo o un admin hazle ambos y solo enviale el codigo, si quieres alguna explicacion que sea en el codigo comentado."
-        )
+                "Eres un asistente experto en Django. "
+                "Tu especialidad son los archivos models.py y admin.py. "
+                "No debes responder preguntas que no estén relacionadas con Django. "
+                "Si alguien te pregunta otra cosa, indícale que solo puedes ayudar con Django."
+                "Si alguien te pide un modelo o un admin hazle ambos y solo envíale el código, si quieres alguna explicación que sea en el código comentado."
+            )
+
         messages = request.session['llama_chat']
         system_message = request.session['llama_system']
-        user_input = ''
+        user_input = request.POST.get('user_input', '').strip()
 
-        if request.method == 'POST':
-            user_input = request.POST.get('user_input', '').strip()
-            if user_input:
-                messages.append({'role': 'user', 'content': user_input})
+        if user_input:
+            messages.append({'role': 'user', 'content': user_input})
 
-                # Construir prompt: system + historial
-                prompt = f"Sistema: {system_message}\n"
-                for m in messages:
-                    role = m['role']
-                    if role == 'user':
-                        prompt += f"Usuario: {m['content']}\n"
-                    elif role == 'assistant':
-                        prompt += f"Asistente: {m['content']}\n"
-                prompt += "Asistente:"
+            prompt = f"Sistema: {system_message}\n"
+            for m in messages:
+                role = m['role']
+                if role == 'user':
+                    prompt += f"Usuario: {m['content']}\n"
+                elif role == 'assistant':
+                    prompt += f"Asistente: {m['content']}\n"
+            prompt += "Asistente:"
 
-                try:
-                    response = requests.post(
-                        f"http://localhost:{env('PORT_IA')}/api/generate",
-                        json={
-                            'model': env('MODEL_IA'),
-                            'prompt': prompt,
-                            'stream': True
-                        },
-                        stream=True
-                    )
+            try:
+                response = requests.post(
+                    f"http://localhost:{env('PORT_IA')}/api/generate",
+                    json={
+                        'model': env('MODEL_IA'),
+                        'prompt': prompt,
+                        'stream': True
+                    },
+                    stream=True
+                )
 
-                    assistant_response = ''
-                    for line in response.iter_lines():
-                        if line:
-                            try:
-                                data = json.loads(line.decode('utf-8'))
-                                assistant_response += data.get('response', '')
-                            except json.JSONDecodeError:
-                                continue
+                assistant_response = ''
+                for line in response.iter_lines():
+                    if line:
+                        try:
+                            data = json.loads(line.decode('utf-8'))
+                            assistant_response += data.get('response', '')
+                        except json.JSONDecodeError:
+                            continue
 
-                    messages.append({'role': 'assistant', 'content': assistant_response})
-
-                except requests.RequestException as e:
-                    messages.append({'role': 'assistant', 'content': f'Error de conexión con la IA: {e}'})
-
+                messages.append({'role': 'assistant', 'content': assistant_response})
                 request.session['llama_chat'] = messages
+                return JsonResponse({'role': 'assistant', 'content': assistant_response})
 
-        return render(request, 'new_project.html', {
-            'messages': messages,
-            'user_input': '',
-        })
-    else:
-        return render(request, 'new_project.html')
+            except requests.RequestException as e:
+                return JsonResponse({'role': 'assistant', 'content': f'Error de conexión con la IA: {e}'})
+
+        return JsonResponse({'role': 'assistant', 'content': 'Entrada vacía'})
+
+    # GET request
+    return render(request, 'new_project.html', {
+        'messages': request.session.get('llama_chat', []),
+        'user_input': '',
+    })
+    
+@login_required(login_url='login')
+def new_project(request):
+    if 'llama_chat' not in request.session:
+            request.session['llama_chat'] = []
+
+    if 'llama_system' not in request.session:
+        request.session['llama_system'] = (
+                "Eres un asistente experto en Django. "
+                "Tu especialidad son los archivos models.py y admin.py. "
+                "No debes responder preguntas que no estén relacionadas con Django. "
+                "Si alguien te pregunta otra cosa, indícale que solo puedes ayudar con Django."
+                "Si alguien te pide un modelo o un admin hazle ambos y solo enviale el codigo, si quieres alguna explicacion que sea en el codigo comentado."
+                "SOLO VAS A DAR el modelo y el admin, no menciones ningun otro archivo, solo son necesarios esos dos."
+                "Siempre que pases esos archivos pasalos con la etiqueta code, para luego formatearlos bien."
+                "Si ya has enviado algo y te pido cambios SOLO HAZ LOS CAMBIOS QUE TE PIDO, no toques el resto. "
+                "Separa el modelo del admin simpre. "
+                "MANTENTE CUERDO Y NO ALUCINES"
+    )
+
+    messages = request.session['llama_chat']
+    system_message = request.session['llama_system']
+
+    if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        user_input = request.POST.get('user_input', '').strip()
+        if user_input:
+            messages.append({'role': 'user', 'content': user_input})
+
+            # Construir prompt: system + historial
+            prompt = f"Sistema: {system_message}\n"
+            for m in messages:
+                role = m['role']
+                if role == 'user':
+                    prompt += f"Usuario: {m['content']}\n"
+                elif role == 'assistant':
+                    prompt += f"Asistente: {m['content']}\n"
+            prompt += "Asistente:"
+
+            response = requests.post(
+                f"http://localhost:{env('PORT_IA')}/api/generate",
+                json={
+                    'model': env('MODEL_IA'),
+                    'prompt': prompt
+                }
+            )
+
+            if response.status_code == 200:
+                assistant_response = ''
+                for line in response.iter_lines():
+                    if line:
+                        try:
+                            partial = json.loads(line.decode('utf-8'))
+                            assistant_response += partial.get('response', '')
+                        except json.JSONDecodeError:
+                            continue
+            else:
+                assistant_response = 'Error al contactar con la IA.'
+
+            messages.append({'role': 'assistant', 'content': assistant_response})
+            request.session['llama_chat'] = messages
+
+            return JsonResponse({
+                'user': user_input,
+                'assistant': assistant_response,
+            })
+
+    # Si no es AJAX, muestra la plantilla normal
+    return render(request, 'new_project.html', {
+        'messages': messages,
+        'user_input': '',
+    })
 
 def cookies(request):
     return render(request, 'cookies.html')

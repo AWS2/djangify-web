@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+import uuid
 # Create your models here.
 
 class Usuario(AbstractUser):
@@ -15,9 +16,11 @@ class Usuario(AbstractUser):
         return self.username
 
 class Project(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
-    description = models.TextField(blank=True, null=True)
+    models_code = models.TextField("Código de models.py", blank=True, null=True)
+    admin_code = models.TextField("Código de admin.py", blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

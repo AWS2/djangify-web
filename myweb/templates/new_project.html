@@ -4,11 +4,11 @@
 <head>
     {% load static %}
     {% load i18n %}
-    {% load markdown_extras %}
     <meta charset="UTF-8">
     <title>{% trans "Nuevo Proyecto" %}</title>
     <link rel="stylesheet" href="{% static 'scripts/styles.css' %}">
     <script src="{% static 'scripts/script.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body class="new_project-body">
     {% include 'partials/header.html' %}
@@ -19,7 +19,7 @@
         <div class="chat-box">
             {% for msg in messages %}
                 <div class="chat-message {{ msg.role }}">
-                    <strong>{{ msg.role|title }}:</strong> {{ msg.content|markdown }}
+                    <strong>{{ msg.role|title }}:</strong> {{ msg.content }}
                 </div>
             {% empty %}
                 <div class="chat-message assistant">Hola 👋, ¿en qué puedo ayudarte con tu proyecto?</div>
@@ -27,11 +27,12 @@
         </div>
 
         <div class="button-dashboard-group">
-            <form method="POST">
+            <form id="chat-form">
                 {% csrf_token %}
-                <textarea name="user_input" rows="3" style="width:100%;" placeholder="Escribe tu mensaje aquí...">{{ user_input }}</textarea>
+                <textarea id="user-input" name="user_input" rows="3" style="width:100%;" placeholder="Escribe tu mensaje aquí..."></textarea>
                 <button type="submit" class="chat-submit-btn">Enviar</button>
             </form>
+
             <a href="{% url 'dashboard' %}" class="btn_dashboard_link">{% trans "Volver" %}</a>
         </div>
         
