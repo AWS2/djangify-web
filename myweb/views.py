@@ -16,6 +16,18 @@ env = environ.Env(
     DEBUG=(bool, False)
 )
 
+def home(request):
+    features = [
+        {'name': 'Django', 'description': 'Framework de desarrollo web'},
+        {'name': 'Python', 'description': 'Lenguaje de programación'},
+        {'name': 'Docker', 'description': 'Contenedores para aplicaciones'},
+        {'name': 'CI/CD', 'description': 'Integración continua y entrega continua'},
+        {'name': 'Prometheus', 'description': 'Monitoreo de sistemas'},
+        {'name': 'Grafana', 'description': 'Visualización de métricas'},
+    ]
+
+    return render(request, 'home.html', {'features': features})
+
 # Create your views here.
 def signin(request):
     if request.method == 'POST':
@@ -59,9 +71,6 @@ def dashboard(request):
 
 def recover(request):
     return render(request, 'recover.html')
-
-def home(request):
-    return render(request, 'home.html')
 
 @login_required(login_url='login')  # URL a donde redirigir si no está logueado
 def new_project(request):

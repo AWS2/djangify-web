@@ -81,6 +81,20 @@
         </div>
     </div>
 
+    <div class="home-features">
+        <h2>Features</h2>
+        <div class="features-list">
+            {% for feature in features %}
+                <div class="card-features-item div{{ forloop.counter }}">
+                    <div class="card-content">
+                        <div class="feature-name">{{ feature.name }}</div>
+                        <div class="feature-description">{{ feature.description }}</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
     {% include 'partials/footer.html' %}
 </body>
 </html>
