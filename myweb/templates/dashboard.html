@@ -11,6 +11,7 @@
 </head>
 <body class="dashboard-body">
     {% include 'partials/header.html' %}
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
 
     <nav class="dashboard-nav">
         <img src="{% static 'assets/profile_picture.png' %}" alt="Profile Picture" class="profile_picture">
@@ -33,12 +34,11 @@
         </div>
         <div class="project-list">
             {% for project in projects %}
-                <div class="card-project-item div{{ forloop.counter }}">
+                <div class="card-project-item div{{ forloop.counter }} project-container">
                     <div class="card-header">
                         <span class="project-title">{{ project.name }}</span>
-
                         <!-- Icono eliminar (papelera) -->
-                        <svg class="delete-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <svg class="delete-icon" data-id="{{ project.id }}" data-url="{% url 'delete_project' project.id %}" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" viewBox="0 0 24 24">
                             <path fill="currentColor" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm3.46-9.12h1.41v6.59H9.46V9.88zm4.67 0h1.41v6.59h-1.41V9.88zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/>
                         </svg>
                     </div>

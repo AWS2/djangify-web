@@ -7,14 +7,14 @@
     <meta charset="UTF-8">
     <title>{% trans "Nuevo Proyecto" %}</title>
     <link rel="stylesheet" href="{% static 'scripts/styles.css' %}">
-    <script src="{% static 'scripts/script.js' %}"></script>
+    <script src="{% static 'scripts/script_new_project.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body class="new_project-body">
     {% include 'partials/header.html' %}
 
     <main class="new_project-main">
-        <h1 class="new_project-title">{% trans "Nuevo Proyecto" %}</h1>
+        <input type="text" id="project-name" name="name" class="project-title-input" placeholder="Pon tu título aquí" required>
 
         <div class="chat-box">
             {% for msg in messages %}
@@ -27,13 +27,26 @@
         </div>
 
         <div class="button-dashboard-group">
-            <form id="chat-form">
-                {% csrf_token %}
-                <textarea id="user-input" name="user_input" rows="3" style="width:100%;" placeholder="Escribe tu mensaje aquí..."></textarea>
-                <button type="submit" class="chat-submit-btn">Enviar</button>
-            </form>
+            <textarea id="user-input" name="user_input" rows="3" placeholder="Escribe tu mensaje aquí..."></textarea>
 
-            <a href="{% url 'dashboard' %}" class="btn_dashboard_link">{% trans "Volver" %}</a>
+            <div class="footer-buttons">
+                <a href="{% url 'dashboard' %}" class="btn_dashboard_link">{% trans "Volver" %}</a>
+
+                <div class="btn-actions">
+                    <form id="save-form" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="name" id="project-name">
+                        <input type="hidden" name="models_code" id="models_code">
+                        <input type="hidden" name="admin_code" id="admin_code">
+                        <button type="submit" id="save-btn" class="chat-submit-btn" disabled>{% trans "Guardar proyecto" %}</button>
+                    </form>
+
+                    <form id="chat-form" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="chat-submit-btn">{% trans "Enviar" %}</button>
+                    </form>
+                </div>
+            </div>
         </div>
         
     </main>

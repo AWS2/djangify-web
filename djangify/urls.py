@@ -30,7 +30,7 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('home/', home, name='home'),
-    path('admin/', admin.site.urls),
+    path('administracio/', admin.site.urls),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(next_page='home'), name='logout'),
     path('signin/', signin, name='signin'),
@@ -42,4 +42,5 @@ urlpatterns += i18n_patterns(
     path('privacy/', privacy, name='privacy'),
     path('legal_advice/', legal_advice, name='legal_advice'),
     path('new_project/', new_project, name='new_project'),
+    path('delete_project/<uuid:project_id>/', delete_project, name='delete_project')
 )

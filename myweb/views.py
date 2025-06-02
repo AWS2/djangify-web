@@ -4,6 +4,8 @@ import json
 from django.shortcuts import render, redirect, render
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from .models import Usuario, Project
@@ -18,12 +20,12 @@ env = environ.Env(
 
 def home(request):
     features = [
-        {'name': 'Django', 'description': 'Framework de desarrollo web'},
-        {'name': 'Python', 'description': 'Lenguaje de programación'},
-        {'name': 'Docker', 'description': 'Contenedores para aplicaciones'},
-        {'name': 'CI/CD', 'description': 'Integración continua y entrega continua'},
-        {'name': 'Prometheus', 'description': 'Monitoreo de sistemas'},
-        {'name': 'Grafana', 'description': 'Visualización de métricas'},
+        {'name': 'Django', 'description': 'Framework de desarrollo web utilizado para toda la web'},
+        {'name': 'Docker', 'description': 'Contenedores para parametrizar y tener una subida a produccion facil y segura'},
+        {'name': 'Swarm', 'description': 'Swarms y clusters para escalar los proyectos manteniendo un bajo consumo de recursos'},
+        {'name': 'Selenium', 'description': 'Tests para comprobar el correcto funcionamiento de la web'},
+        {'name': 'Prometheus', 'description': 'Monitorizacion de sistemas'},
+        {'name': 'Grafana', 'description': 'Visualización de métricas'},     
     ]
 
     return render(request, 'home.html', {'features': features})
@@ -72,94 +74,44 @@ def dashboard(request):
 def recover(request):
     return render(request, 'recover.html')
 
-@login_required(login_url='login')
-def new_project(request):
-    if request.method == "POST" and request.headers.get('x-requested-with') == 'XMLHttpRequest':
-        if 'llama_chat' not in request.session:
-            request.session['llama_chat'] = []
+@require_POST
+@login_required
+def delete_project(request, project_id):
+    try:
+        print(project_id)
+        project = Project.objects.get(id=project_id)
+        project.delete()
+        return JsonResponse({'status': 'ok'})
+    except Project.DoesNotExist:
+        return JsonResponse({'status': 'error', 'message': 'No encontrado'}, status=404)
 
-        if 'llama_system' not in request.session:
-            request.session['llama_system'] = (
-                "Eres un asistente experto en Django. "
-                "Tu especialidad son los archivos models.py y admin.py. "
-                "No debes responder preguntas que no estén relacionadas con Django. "
-                "Si alguien te pregunta otra cosa, indícale que solo puedes ayudar con Django."
-                "Si alguien te pide un modelo o un admin hazle ambos y solo envíale el código, si quieres alguna explicación que sea en el código comentado."
-            )
-
-        messages = request.session['llama_chat']
-        system_message = request.session['llama_system']
-        user_input = request.POST.get('user_input', '').strip()
-
-        if user_input:
-            messages.append({'role': 'user', 'content': user_input})
-
-            prompt = f"Sistema: {system_message}\n"
-            for m in messages:
-                role = m['role']
-                if role == 'user':
-                    prompt += f"Usuario: {m['content']}\n"
-                elif role == 'assistant':
-                    prompt += f"Asistente: {m['content']}\n"
-            prompt += "Asistente:"
-
-            try:
-                response = requests.post(
-                    f"http://localhost:{env('PORT_IA')}/api/generate",
-                    json={
-                        'model': env('MODEL_IA'),
-                        'prompt': prompt,
-                        'stream': True
-                    },
-                    stream=True
-                )
-
-                assistant_response = ''
-                for line in response.iter_lines():
-                    if line:
-                        try:
-                            data = json.loads(line.decode('utf-8'))
-                            assistant_response += data.get('response', '')
-                        except json.JSONDecodeError:
-                            continue
-
-                messages.append({'role': 'assistant', 'content': assistant_response})
-                request.session['llama_chat'] = messages
-                return JsonResponse({'role': 'assistant', 'content': assistant_response})
-
-            except requests.RequestException as e:
-                return JsonResponse({'role': 'assistant', 'content': f'Error de conexión con la IA: {e}'})
-
-        return JsonResponse({'role': 'assistant', 'content': 'Entrada vacía'})
-
-    # GET request
-    return render(request, 'new_project.html', {
-        'messages': request.session.get('llama_chat', []),
-        'user_input': '',
-    })
-    
 @login_required(login_url='login')
 def new_project(request):
     if 'llama_chat' not in request.session:
-            request.session['llama_chat'] = []
+        request.session['llama_chat'] = []
 
     if 'llama_system' not in request.session:
         request.session['llama_system'] = (
-                "Eres un asistente experto en Django. "
-                "Tu especialidad son los archivos models.py y admin.py. "
-                "No debes responder preguntas que no estén relacionadas con Django. "
-                "Si alguien te pregunta otra cosa, indícale que solo puedes ayudar con Django."
-                "Si alguien te pide un modelo o un admin hazle ambos y solo enviale el codigo, si quieres alguna explicacion que sea en el codigo comentado."
-                "SOLO VAS A DAR el modelo y el admin, no menciones ningun otro archivo, solo son necesarios esos dos."
-                "Siempre que pases esos archivos pasalos con la etiqueta code, para luego formatearlos bien."
-                "Si ya has enviado algo y te pido cambios SOLO HAZ LOS CAMBIOS QUE TE PIDO, no toques el resto. "
-                "Separa el modelo del admin simpre. "
-                "MANTENTE CUERDO Y NO ALUCINES"
-    )
+            "Eres un asistente experto en Django. "
+            "Tu especialidad son los archivos models.py y admin.py. "
+            "No debes responder preguntas que no estén relacionadas con Django. "
+            "Si alguien te pregunta otra cosa, indícale que solo puedes ayudar con Django. "
+            "Si alguien te pide un modelo o un admin hazle ambos y solo envíale el código, si quieres alguna explicación que sea en el código comentado. "
+            "SOLO VAS A DAR el modelo y el admin, no menciones ningún otro archivo, solo son necesarios esos dos. NO ENVIES ninguna nota extra ni nada, solo esos archivos. "
+            "Siempre que pases esos archivos pásalos con la etiqueta code, para luego formatearlos bien. "
+            "Si ya has enviado algo y te pido cambios SOLO HAZ LOS CAMBIOS QUE TE PIDO, no toques el resto. "
+            "ENVIA SIEMPRE el modelo del admin en la misma etiqueta de codigo. ENVIAMELO EN LA MISMA ETIQUETA DE PYTHON "
+            "Crea los modelos y el admin simples. "
+            "Quiero que lo pases SIEMPRE con el siguiente formato:```python  **models.py** (codigo para el modelo) **admin.py** (codigo para el admin)```. " 
+            "ENVIA SIEMPRE EN UN SOLO BLOQUE code"
+            "DE TODAS LAS COSAS QUE TE HE DICHO LAS MAS IMPORTANTES SON: responder unicamente cosas de django mas especificamente solo el models y admin, el formato ```python **models.py** (codigo) **admin.py** (codigo)``` y dar siempre el modelo y el admin a la vez, nunca solo uno"
+            "MANTENTE CUERDO Y NO ALUCINES."
+        )
 
     messages = request.session['llama_chat']
     system_message = request.session['llama_system']
 
+    # AJAX request para procesar el chat
     if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
         user_input = request.POST.get('user_input', '').strip()
         if user_input:
@@ -175,25 +127,29 @@ def new_project(request):
                     prompt += f"Asistente: {m['content']}\n"
             prompt += "Asistente:"
 
-            response = requests.post(
-                f"http://{env('URL_IA')}:{env('PORT_IA')}/api/generate",
-                json={
-                    'model': env('MODEL_IA'),
-                    'prompt': prompt
-                }
-            )
+            try:
+                response = requests.post(
+                    f"http://{env('URL_IA')}:{env('PORT_IA')}/api/generate",
+                    json={
+                        'model': env('MODEL_IA'),
+                        'prompt': prompt
+                    },
+                    stream=True
+                )
 
-            if response.status_code == 200:
                 assistant_response = ''
-                for line in response.iter_lines():
-                    if line:
-                        try:
-                            partial = json.loads(line.decode('utf-8'))
-                            assistant_response += partial.get('response', '')
-                        except json.JSONDecodeError:
-                            continue
-            else:
-                assistant_response = 'Error al contactar con la IA.'
+                if response.status_code == 200:
+                    for line in response.iter_lines():
+                        if line:
+                            try:
+                                partial = json.loads(line.decode('utf-8'))
+                                assistant_response += partial.get('response', '')
+                            except json.JSONDecodeError:
+                                continue
+                else:
+                    assistant_response = 'Error al contactar con la IA.'
+            except requests.RequestException as e:
+                assistant_response = f'Error de conexión con la IA: {e}'
 
             messages.append({'role': 'assistant', 'content': assistant_response})
             request.session['llama_chat'] = messages
@@ -203,7 +159,23 @@ def new_project(request):
                 'assistant': assistant_response,
             })
 
-    # Si no es AJAX, muestra la plantilla normal
+    # POST normal → guardar proyecto
+    elif request.method == 'POST':
+        name = request.POST.get('name', '').strip()
+        models_code = request.POST.get('models_code', '').strip()
+        admin_code = request.POST.get('admin_code', '').strip()
+
+        if name and models_code and admin_code:
+            Project.objects.create(
+                user=request.user,
+                name=name,
+                models_code=models_code,
+                admin_code=admin_code
+            )
+            # Resetear la sesión del chat si quieres que se empiece de cero
+            request.session['llama_chat'] = []
+            return redirect('dashboard')
+
     return render(request, 'new_project.html', {
         'messages': messages,
         'user_input': '',

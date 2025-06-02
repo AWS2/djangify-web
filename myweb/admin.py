@@ -8,7 +8,7 @@ class UsuarioAdmin(admin.ModelAdmin):
     ordering = ('-date_joined',)
 
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('name', 'user', 'created_at')
+    list_display = ('id', 'name', 'user', 'created_at')
     search_fields = ('name',)
     ordering = ('-created_at',)
 

@@ -4,7 +4,7 @@
     <div class="logo">
         <a href="/home"><img class="logo" src="{% static 'assets/logo_size_invert.jpg' %}" alt="Logo"></a>
     </div>
-    <a href="/home"><h1 class="title">Djangify</h1></a>
+    <a href="/home"><h1 class="title"><em>Djangify</em></h1></a>
 
     {% if user.is_authenticated %}
     <form method="POST" action="{% url 'logout' %}" style="margin-left: auto;">

@@ -6,56 +6,36 @@ function setLanguage(lang) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById('chat-form');
-    const input = document.getElementById('user-input');
-    const box = document.querySelector('.chat-box');
+    const deleteIcons = document.querySelectorAll('.delete-icon');
 
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const message = input.value.trim();
-        if (!message) return;
+    deleteIcons.forEach(icon => {
+        icon.addEventListener('click', async () => {
+            const projectId = icon.dataset.id;
+            const deleteUrl = icon.dataset.url;
 
-        const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+            const confirmed = confirm("¿Estás seguro de que quieres eliminar este proyecto?");
+            if (!confirmed) return;
 
-        fetch(form.action || window.location.href, {
-            method: "POST",
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest',
-                'X-CSRFToken': csrfToken,
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams({ user_input: message })
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Mensaje del usuario
-            const userMsg = document.createElement('div');
-            userMsg.className = 'chat-message user';
-            userMsg.innerHTML = `<strong>Usuario:</strong> ${escapeHtml(data.user)}`;
-            box.appendChild(userMsg);
+            try {
+                const response = await fetch(deleteUrl, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': document.querySelector('input[name="csrfmiddlewaretoken"]').value,
+                        'Content-Type': 'application/json',
+                    },
+                });
 
-            // Mensaje del asistente (formateado con markdown)
-            const assistantMsg = document.createElement('div');
-            assistantMsg.className = 'chat-message assistant';
-            assistantMsg.innerHTML = `<strong>Asistente:</strong> ${marked.parse(data.assistant)}`;
-            box.appendChild(assistantMsg);
-
-            input.value = '';
-            box.scrollTop = box.scrollHeight;
+                if (response.ok) {
+                    icon.closest('.project-container').remove();
+                    alert("Proyecto borrado correctamente");
+                    window.location.href=""
+                } else {
+                    throw new Error("No se pudo eliminar el proyecto.");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Hubo un problema al eliminar el proyecto.");
+            }
         });
     });
-
-    // Función para evitar inyecciones
-    function escapeHtml(text) {
-        return text.replace(/[&<>"']/g, function (match) {
-            const escapeMap = {
-                '&': '&amp;',
-                '<': '&lt;',
-                '>': '&gt;',
-                '"': '&quot;',
-                "'": '&#039;'
-            };
-            return escapeMap[match];
-        });
-    }
 });
