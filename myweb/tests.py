@@ -238,66 +238,118 @@ class MyseleniumTests(StaticLiveServerTestCase):
             print(f"\033[91mFAILURE: The AI is not responding\033[0m")
 
 
+    def logout(self):
+
+        # Find the header link by the h1 title text "Djangify"
+        self.selenium.find_element(By.LINK_TEXT, "Djangify").click()
+        time.sleep(2)
+
+        # Click the login button of the home page
+        self.selenium.execute_script("arguments[0].click();", self.selenium.find_element(By.LINK_TEXT, "Crea tu proyecto"))
+        time.sleep(2)
+
+        # Verify we're on the dashboard page
+        self.compare_strs(
+            expected_str="dashboard-body",
+            current_str=self.selenium.find_element(By.TAG_NAME, "body").get_attribute("class"),
+            success_msg=f"\033[92mSUCCESS: Redirect to dashboard page worked correctly!\nThe user can try to log out!\033[0m",
+            failure_msg=f"\033[91mFAILURE: The user is not on the dashboard page\nThe user is not able to log out\033[0m"
+        )
+
+        # Verify if the previous verification has been successful
+
+        if self.selenium.find_element(By.TAG_NAME, "body").get_attribute("class") == "dashboard-body":
+
+            # Find the header's logout button
+            self.selenium.find_element(By.CSS_SELECTOR, "button[type='submit'][title='Cerrar sesión']").click()
+            time.sleep(2)
+
+            # Verify we're on the home page
+            self.compare_strs(
+                expected_str=f"{self.live_server_url}/en/home/",
+                current_str=self.selenium.current_url,
+                success_msg=f"\033[92mSUCCESS: The user has loged out!\033[0m",
+                failure_msg=f"\033[91mFAILURE: The user is still on the dashboard page\033[0m"
+            )
+
+            # Click the login button of the home page
+            self.selenium.execute_script("arguments[0].click();", self.selenium.find_element(By.LINK_TEXT, "Crea tu proyecto"))
+            time.sleep(2)
+
+            # Verify we're on the login page
+            self.compare_strs(
+                expected_str="login-body",
+                current_str=self.selenium.find_element(By.TAG_NAME, "body").get_attribute("class"),
+                success_msg=f"\033[92mSUCCESS: Redirect to login page worked correctly!\nLogout works as expected!\033[0m",
+                failure_msg=f"\033[91mFAILURE: The user has been sent to the dashboard page\nLogout doesn't work as expected\033[0m"
+            )
+
+
     def test_all(self):
         """
         # Execute the home content test
         print("\n=============================================================================================\n" +
-            "BEGGINING HOME CONTENT TEST\n" +
-            "=============================================================================================\n")
+            "BEGGINING HOME CONTENT TEST" +
+            "\n=============================================================================================\n")
         self.home_content()
 
         # Execute the footer content test
         print("\n=============================================================================================\n" +
-            "BEGGINING FOOTER CONTENT TEST\n" +
-            "=============================================================================================\n")
+            "BEGGINING FOOTER CONTENT TEST" +
+            "\n=============================================================================================\n")
         self.footer_content()
 
         # Execute the footer test
         print("\n=============================================================================================\n" +
-            "BEGGINING FOOTER TEST\n" +
-            "=============================================================================================\n")
+            "BEGGINING FOOTER TEST" +
+            "\n=============================================================================================\n")
         self.footer()
 
         # Execute the header test
         print("\n=============================================================================================\n" +
-            "BEGGINING HEADER TEST\n" +
-            "=============================================================================================\n")
+            "BEGGINING HEADER TEST" +
+            "\n=============================================================================================\n")
         self.header()
 
         # Execute the Github URL test
         print("\n=============================================================================================\n" +
-            "BEGGINING GITHUB URL TEST\n" +
-            "=============================================================================================\n")
+            "BEGGINING GITHUB URL TEST" +
+            "\n=============================================================================================\n")
         self.github_url()
 
         # Execute the login URL test
         print("\n=============================================================================================\n" +
-            "BEGGINING LOGIN URL TEST\n" +
-            "=============================================================================================\n")
+            "BEGGINING LOGIN URL TEST" +
+            "\n=============================================================================================\n")
         self.login_url()
 
         # Execute the login failure test
         print("\n=============================================================================================\n" +
-            "BEGGINING LOGIN FAILURE TEST\n" +
-            "=============================================================================================\n")
+            "BEGGINING LOGIN FAILURE TEST" +
+            "\n=============================================================================================\n")
         self.login_failure()
         """
         # Execute the login success test
         print("\n=============================================================================================\n" +
-            "BEGGINING LOGIN SUCCESS TEST\n" +
-            "=============================================================================================\n")
+            "BEGGINING LOGIN SUCCESS TEST" +
+            "\n=============================================================================================\n")
         self.login_success()
         """
         # Execute the new project URL test
         print("\n=============================================================================================\n" +
-            "BEGGINING NEW PROJECT URL TEST\n" +
-            "=============================================================================================\n")
+            "BEGGINING NEW PROJECT URL TEST" +
+            "\n=============================================================================================\n")
         self.new_project_url()
 
         # Execute the create project test
         print("\n=============================================================================================\n" +
-            "BEGGINING CREATE PROJECT TEST\n" +
-            "=============================================================================================\n")
+            "BEGGINING CREATE PROJECT TEST" +
+            "\n=============================================================================================\n")
         self.create_project()
         """
+        # Execute the logout test
+        print("\n=============================================================================================\n" +
+            "BEGGINING LOGOUT TEST" +
+            "\n=============================================================================================\n")
+        self.logout()
 
