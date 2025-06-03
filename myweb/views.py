@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
-from .models import Usuario, Project
+from .models import Usuario, Project, Mail
 from ollama import chat
 from django.http import JsonResponse
 from django.conf import settings
@@ -24,8 +24,8 @@ def home(request):
         {'name': 'Docker', 'description': 'Contenedores para parametrizar y tener una subida a produccion facil y segura'},
         {'name': 'Swarm', 'description': 'Swarms y clusters para escalar los proyectos manteniendo un bajo consumo de recursos'},
         {'name': 'Selenium', 'description': 'Tests para comprobar el correcto funcionamiento de la web'},
+        {'name': 'OLlama', 'description': 'IA para la creacion de archivos clave para Django'}, 
         {'name': 'Prometheus', 'description': 'Monitorizacion de sistemas'},
-        {'name': 'Grafana', 'description': 'Visualización de métricas'},     
     ]
 
     return render(request, 'home.html', {'features': features})
@@ -55,7 +55,28 @@ def signin(request):
             email=email,
             password=make_password(password)
         )
+
         user.save()
+
+        mail = Mail(
+            subject="Validacion de correo electronico",
+            body=f"""
+                    Hola {user.username},
+
+                    ¡Gracias por registrarte en nuestra plataforma!
+
+                    Para completar tu registro, por favor verifica tu dirección de correo electrónico haciendo clic en el siguiente enlace:
+
+                    {env('URL_MAIL')}/verify/{user.id}/
+
+                    Si no has creado esta cuenta, puedes ignorar este mensaje.
+
+                    Saludos,
+                    Djangify.
+                    """,
+            send=False,
+            user=user
+        )
 
         # Aquí puedes enviar el correo si lo necesitas
 
@@ -92,20 +113,15 @@ def new_project(request):
 
     if 'llama_system' not in request.session:
         request.session['llama_system'] = (
-            "Eres un asistente experto en Django. "
-            "Tu especialidad son los archivos models.py y admin.py. "
-            "No debes responder preguntas que no estén relacionadas con Django. "
-            "Si alguien te pregunta otra cosa, indícale que solo puedes ayudar con Django. "
-            "Si alguien te pide un modelo o un admin hazle ambos y solo envíale el código, si quieres alguna explicación que sea en el código comentado. "
-            "SOLO VAS A DAR el modelo y el admin, no menciones ningún otro archivo, solo son necesarios esos dos. NO ENVIES ninguna nota extra ni nada, solo esos archivos. "
-            "Siempre que pases esos archivos pásalos con la etiqueta code, para luego formatearlos bien. "
-            "Si ya has enviado algo y te pido cambios SOLO HAZ LOS CAMBIOS QUE TE PIDO, no toques el resto. "
-            "ENVIA SIEMPRE el modelo del admin en la misma etiqueta de codigo. ENVIAMELO EN LA MISMA ETIQUETA DE PYTHON "
-            "Crea los modelos y el admin simples. "
-            "Quiero que lo pases SIEMPRE con el siguiente formato:```python  **models.py** (codigo para el modelo) **admin.py** (codigo para el admin)```. " 
-            "ENVIA SIEMPRE EN UN SOLO BLOQUE code"
-            "DE TODAS LAS COSAS QUE TE HE DICHO LAS MAS IMPORTANTES SON: responder unicamente cosas de django mas especificamente solo el models y admin, el formato ```python **models.py** (codigo) **admin.py** (codigo)``` y dar siempre el modelo y el admin a la vez, nunca solo uno"
-            "MANTENTE CUERDO Y NO ALUCINES."
+            "Eres un asistente especializado en Django, con foco exclusivo en la creación de archivos models.py y admin.py. "
+            "Solo respondes consultas relacionadas con Django; si te preguntan sobre otro tema, indícalo claramente (“Solo puedo ayudar con Django”). "
+            "Cuando soliciten un modelo o un admin, envía ambos archivos juntos, en un único bloque de código, sin agregar ningún texto extra. "
+            "No menciones ni generes ningún otro archivo (ni vistas, ni formularios, ni settings, etc.). Solo models.py y admin.py. "
+            "El contenido dentro de cada archivo debe ser sencillo y directo. Si necesitas explicar algo, hazlo con comentarios dentro del código. "
+            "Nunca combines el admin en el mismo archivo que los modelos. models.py y admin.py siempre separados, pero enviados juntos en la misma etiqueta de código. "
+            "Usa siempre la etiqueta de bloque de código Markdown: el contenido de models.py entre python y luego el contenido de admin.py entre python. No agregues encabezados, notas adicionales ni explicaciones fuera de comentarios en el código. "
+            "Si ya enviaste un models.py y un admin.py y solicitan cambios, solo modifica exactamente lo pedido; no alteres nada más. "
+            "Lo más importante: responder únicamente cosas de Django, y solo models.py y admin.py; entregar siempre ambos archivos a la vez, en un solo bloque de código; no alucinar ni inventar información."
         )
 
     messages = request.session['llama_chat']
@@ -133,6 +149,34 @@ def new_project(request):
                     json={
                         'model': env('MODEL_IA'),
                         'prompt': prompt
+                    },
+                    stream=True
+                )
+
+                assistant_response = ''
+                if response.status_code == 200:
+                    for line in response.iter_lines():
+                        if line:
+                            try:
+                                partial = json.loads(line.decode('utf-8'))
+                                assistant_response += partial.get('response', '')
+                            except json.JSONDecodeError:
+                                continue
+                else:
+                    assistant_response = 'Error al contactar con la IA.'
+            except requests.RequestException as e:
+                assistant_response = f'Error de conexión con la IA: {e}'
+
+            try:
+                response = requests.post(
+                    f"http://{env('URL_IA')}:{env('PORT_IA')}/api/generate",
+                    json={
+                        'model': env('MODEL_IA'),
+                        'prompt': 
+                        "Te voy a pasar una respuesta tuya y quiero que me duelvas unica y exclusivamente el models.py y el admin.py."
+                        "No añadas ningun comentario, solo codigo. "
+                        "Quiero que me lo hagas siempre con el mismo formato, " 
+                        + assistant_response
                     },
                     stream=True
                 )

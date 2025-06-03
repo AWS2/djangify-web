@@ -24,12 +24,18 @@
     <main class="dashboard-main">
         <div class="dashboard-header">
             <h1>{% trans "Proyectos" %}</h1>
-            {% if projects|length < 6 or request.user.rol == 'PLUS' %}
-                <a href="{% url 'new_project' %}" class="btn_dashboardb_link">{% trans "Crea tu proyecto" %}</a>
+            {% if request.user.validated == True %}
+                {% if projects|length < 6 or request.user.rol == 'PLUS' %}
+                    <a href="{% url 'new_project' %}" class="btn_dashboardb_link">{% trans "Crea tu proyecto" %}</a>
+                {% else %}
+                    <a class="btn_dashboardb_link">
+                        {% trans "Límite alcanzado" %}
+                    </a>
+                {% endif %}
             {% else %}
-                <a class="btn_dashboardb_link">
-                    {% trans "Límite alcanzado" %}
-                </a>
+                <button class="btn_dashboardb_link_noValidated" disabled>
+                    {% trans "Aun no estas validado" %}
+                </button>
             {% endif %}
         </div>
         <div class="project-list">

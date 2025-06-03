@@ -548,7 +548,7 @@ button:hover {
     
 }
 
-.cookies-main h1, .cookies-main h2, .cookies-main h3{
+.cookies-main h1 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -565,6 +565,10 @@ button:hover {
     color: #5C51D1;
     font-size: 14px;
     text-decoration: none;
+}
+
+.cookies-main li {
+    margin-left: 50px;
 }
 
 .privacy-body {
@@ -598,6 +602,10 @@ button:hover {
     text-align: center;
 }
 
+.privacy-main li {
+    margin-left: 50px;
+}
+
 .privacy-main a {
     color: #5C51D1;
     font-size: 14px;
@@ -618,8 +626,7 @@ button:hover {
     background-color: #A7C4FF;
     padding: 0 50px 50px 50px;
     margin-top: 72px;
-    margin-bottom: 72px;
-    
+    margin-bottom: 72px;   
 }
 
 .terms-main h1 {
@@ -635,7 +642,51 @@ button:hover {
     text-align: center;
 }
 
+.terms-main li {
+    margin-left: 50px;
+}
+
 .terms-main a {
+    color: #5C51D1;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.terms-body {
+    background-color: #E6E6FA;
+    margin-top: 72px;
+    margin-bottom: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.legal-main {
+    width: 80%;
+    background-color: #A7C4FF;
+    padding: 0 50px 50px 50px;
+    margin-top: 72px;
+    margin-bottom: 72px;   
+}
+
+.legal-main h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.legal-main p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.legal-main li {
+    margin-left: 50px;
+}
+
+.legal-main a {
     color: #5C51D1;
     font-size: 14px;
     text-decoration: none;
@@ -769,6 +820,11 @@ button:hover {
     right: 5px;
     cursor: pointer;
     color: #FFFFFF;
+}
+
+.btn_dashboardb_link_noValidated:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .project-list .div1 { grid-area: 1 / 1 / 3 / 3; }

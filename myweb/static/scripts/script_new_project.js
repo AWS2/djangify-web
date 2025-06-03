@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const saveForm = document.getElementById('save-form');
     const input = document.getElementById('user-input');
     const box = document.querySelector('.chat-box');
-    const visibleInput = document.querySelectorAll('#project-name')[0];
-    const hiddenInput = document.querySelectorAll('#project-name')[1];
+    const visibleInput = document.getElementById('project-name-visible');
+    const hiddenInput = document.getElementById('project-name-hidden');
     const saveButton = document.getElementById('save-btn');
 
     function toggleSaveButtonAndSync() {
@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const rawCode = rawCodeMatch ? rawCodeMatch[1] : '';
         assistantMsg.dataset.code = rawCode;
         console.log(data.assistant)
+
         // Mostrar el contenido formateado con marked
         assistantMsg.innerHTML = `<strong>Asistente:</strong> ${marked.parse(data.assistant)}`;
         box.appendChild(assistantMsg);
@@ -75,60 +76,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Al guardar proyecto, extraer el último bloque válido de models.py y admin.py
     saveForm.addEventListener('submit', function (e) {
-    let modelsCode = '';
-    let adminCode = '';
-    const allMessages = document.querySelectorAll('.chat-message.assistant');
+        console.log('🟢 Entrando en saveForm submit');
+        
+        let modelsCode = '';
+        let adminCode = '';
 
-    allMessages.forEach(msg => {
-        const code = msg.dataset.code;
-        if (!code) return;
+        const allMessages = document.querySelectorAll('.chat-message.assistant');
 
-        const patterns = {
-            models: [
-                // Formato: **models.py** seguido de bloque Markdown
-                /\*\*models\.py\*\*\s*```(?:python)?\s*([\s\S]*?)```/i,
+        allMessages.forEach(msg => {
+            const code = msg.dataset.code;
+            if (!code) return;
 
-                // Bloque Markdown con **models.py** dentro del código
-                /```(?:python)?\s*\*\*models\.py\*\*\s*([\s\S]*?)```/i,
+            // Solo analizamos bloques que contengan al menos 'admin.py'
+            if (code.includes('# admin.py')) {
+                const modelsMatch = code.match(/^([\s\S]*?)^\s*#\s*admin\.py\b/im);
+                const adminMatch = code.match(/^#\s*admin\.py\b[\s\n]*([\s\S]*)$/im);
 
-                // Formato simple: **models.py** seguido de código plano hasta **admin.py**
-                /\*\*models\.py\*\*\s*([\s\S]*?)(?=\*\*admin\.py\*\*|\*\*\w+\.py\*\*|$)/i,
-
-                // Formato inline dentro del ```python: # models.py (codigo)
-                /```(?:python)?\s*#\s*models\.py.*?\n([\s\S]*?)(?=#\s*admin\.py|\*\*admin\.py\*\*|\*\*\w+\.py\*\*|$)/i
-            ],
-            admin: [
-                // Formato: **admin.py** seguido de bloque Markdown
-                /\*\*admin\.py\*\*\s*```(?:python)?\s*([\s\S]*?)```/i,
-
-                // Bloque Markdown con **admin.py** dentro del código
-                /```(?:python)?\s*\*\*admin\.py\*\*\s*([\s\S]*?)```/i,
-
-                // Formato simple: **admin.py** seguido de código plano hasta otro bloque
-                /\*\*admin\.py\*\*\s*([\s\S]*?)(?=\*\*\w+\.py\*\*|$)/i,
-
-                // Formato inline dentro del ```python: # admin.py (codigo)
-                /#\s*admin\.py.*?\n([\s\S]*?)```/i
-            ]
-        };
-
-        function matchFirst(patterns, text) {
-            for (const pattern of patterns) {
-                const match = text.match(pattern);
-                if (match) return match[1].trim();
+                modelsCode = modelsMatch ? modelsMatch[1].trim() : '';
+                adminCode = adminMatch ? adminMatch[1].trim() : '';
             }
-            return '';
-        }
+        });
 
-        modelsCode = matchFirst(patterns.models, code);
-        adminCode = matchFirst(patterns.admin, code);
-    });
+        document.getElementById('models_code').value = modelsCode;
+        document.getElementById('admin_code').value = adminCode;
 
-    document.getElementById('models_code').value = modelsCode;
-    document.getElementById('admin_code').value = adminCode;
-
-    console.log("🟩 models.py:\n", modelsCode);
-    console.log("🟦 admin.py:\n", adminCode);
-    // El formulario se enviará automáticamente tras este evento
+        console.log('MODELS:\n', modelsCode);
+        console.log('ADMIN:\n', adminCode);
     });
 });

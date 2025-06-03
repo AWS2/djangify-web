@@ -14,7 +14,7 @@
     {% include 'partials/header.html' %}
 
     <main class="new_project-main">
-        <input type="text" id="project-name" name="name" class="project-title-input" placeholder="Pon tu título aquí" required>
+        <input type="text" id="project-name-visible" name="name" class="project-title-input" placeholder="Pon tu título aquí" required>
 
         <div class="chat-box">
             {% for msg in messages %}
@@ -35,7 +35,7 @@
                 <div class="btn-actions">
                     <form id="save-form" method="post">
                         {% csrf_token %}
-                        <input type="hidden" name="name" id="project-name">
+                        <input type="hidden" name="name" id="project-name-hidden">
                         <input type="hidden" name="models_code" id="models_code">
                         <input type="hidden" name="admin_code" id="admin_code">
                         <button type="submit" id="save-btn" class="chat-submit-btn" disabled>{% trans "Guardar proyecto" %}</button>

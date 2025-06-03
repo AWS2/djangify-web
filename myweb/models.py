@@ -5,14 +5,13 @@ import uuid
 
 class Usuario(AbstractUser):
     email = models.EmailField(unique=True)
-    validated = models.BooleanField
+    validated = models.BooleanField(default=False)
 
     ROL_CHOICES = (
         ('GRATIS', 'Gratis'),
         ('PLUS', 'Plus'),
     )
     rol = models.CharField(max_length=10, choices=ROL_CHOICES, default='GRATIS')
-
 
     def __str__(self):
         return self.username
@@ -33,7 +32,7 @@ class Mail(models.Model):
     subject = models.CharField(max_length=255)
     body = models.TextField()
     send = models.BooleanField(default=False)
-    email = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    user = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.subject} to {self.user.email}"

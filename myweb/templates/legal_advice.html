@@ -1,19 +1,48 @@
-<!-- privacy.html -->
+<!-- legal_advice.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     {% load static %}
     {% load i18n %}
     <meta charset="UTF-8">
-    <title>{% trans "Politica de privacidad" %}</title>
+    <title>{% trans "Aviso Legal" %}</title>
     <link rel="stylesheet" href="{% static 'scripts/styles.css' %}">
     <script src="{% static 'scripts/script.js' %}"></script>
 </head>
-<body class="privacy-body">
+<body class="legal-body">
     {% include 'partials/header.html' %}
-    <main class="privacy-main">
-        <h1 class="privacy-title">{% trans "Politica de privacidad" %}</h1>
-        
+    <main class="legal-main">
+        <h1 class="legal-title">{% trans "Aviso Legal" %}</h1>
+
+        <section>
+            <h2>{% trans "1. Titularidad del sitio web" %}</h2>
+            <p>{% trans "En cumplimiento de la Ley 34/2002, de 11 de julio, de servicios de la sociedad de la información y de comercio electrónico (LSSI-CE), se informa que este sitio web pertenece a:" %}</p>
+            <ul>
+                <li>{% trans "Nombre de la plataforma: Djangify" %}</li>
+                <li>{% trans "Titulares: Enric Mieza y Toni Verges" %}</li>
+                <li>{% trans "Correo de contacto: contacto@djangify.ieti.site" %}</li>
+                <li>{% trans "Dominio web: https://djangify.ieti.site/" %}</li>
+            </ul>
+
+            <h2>{% trans "2. Objeto" %}</h2>
+            <p>{% trans "El presente Aviso Legal regula el uso del sitio web djangify.ieti.site, cuyo objetivo es ofrecer herramientas, contenido formativo y recursos para el desarrollo de proyectos con Django." %}</p>
+
+            <h2>{% trans "3. Condiciones de uso" %}</h2>
+            <p>{% trans "El acceso y uso del sitio web implica la aceptación de las presentes condiciones, así como de los Términos de Uso y, en su caso, de la Política de Privacidad y de Cookies. El usuario se compromete a hacer un uso adecuado del sitio y a no llevar a cabo actividades ilícitas, fraudulentas o que infrinjan derechos de terceros." %}</p>
+
+            <h2>{% trans "4. Propiedad intelectual" %}</h2>
+            <p>{% trans "Todos los contenidos del sitio (textos, imágenes, código, diseño, etc.) son propiedad de sus titulares, salvo aquellos publicados bajo licencias de código abierto debidamente indicadas. Queda prohibida su reproducción, distribución o uso no autorizado." %}</p>
+
+            <h2>{% trans "5. Responsabilidad" %}</h2>
+            <p>{% trans "Djangify no se hace responsable de posibles errores en el contenido, interrupciones del servicio o daños derivados del uso del sitio, salvo disposición legal en contrario." %}</p>
+
+            <h2>{% trans "6. Enlaces externos" %}</h2>
+            <p>{% trans "En el sitio pueden incluirse enlaces a páginas externas. Djangify no se responsabiliza del contenido ni del funcionamiento de dichas páginas." %}</p>
+
+            <h2>{% trans "7. Legislación aplicable" %}</h2>
+            <p>{% trans "Este aviso se rige por la legislación española. Para cualquier controversia, las partes se someterán a los juzgados y tribunales del domicilio del usuario." %}</p>
+        </section>
+
     </main>
     {% include 'partials/footer.html' %}
 </body>
