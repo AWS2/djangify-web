@@ -1,17 +1,20 @@
 import requests
 import environ
 import json
-from django.shortcuts import render, redirect, render
+from django.shortcuts import render, redirect, render, get_object_or_404
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import get_user_model, update_session_auth_hash
 from django.views.decorators.http import require_POST
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
 from .models import Usuario, Project, Mail
 from ollama import chat
 from django.http import JsonResponse
 from django.conf import settings
+from django.contrib.auth.tokens import default_token_generator
+from django.core.exceptions import ObjectDoesNotExist
+
+User = get_user_model()
 
 env = environ.Env(
     # set casting, default value
@@ -19,16 +22,50 @@ env = environ.Env(
 )
 
 def home(request):
-    features = [
-        {'name': 'Django', 'description': 'Framework de desarrollo web utilizado para toda la web'},
-        {'name': 'Docker', 'description': 'Contenedores para parametrizar y tener una subida a produccion facil y segura'},
-        {'name': 'Swarm', 'description': 'Swarms y clusters para escalar los proyectos manteniendo un bajo consumo de recursos'},
-        {'name': 'Selenium', 'description': 'Tests para comprobar el correcto funcionamiento de la web'},
-        {'name': 'OLlama', 'description': 'IA para la creacion de archivos clave para Django'}, 
-        {'name': 'Prometheus', 'description': 'Monitorizacion de sistemas'},
-    ]
+    lang = request.COOKIES.get('django_language', 'es')  # por defecto 'es' si no hay cookie
+
+    features_dict = {
+        'es': [
+            {'name': 'Django', 'description': 'Framework de desarrollo web utilizado para toda la web'},
+            {'name': 'Docker', 'description': 'Contenedores para parametrizar y tener una subida a producción fácil y segura'},
+            {'name': 'Swarm', 'description': 'Swarms y clusters para escalar los proyectos manteniendo un bajo consumo de recursos'},
+            {'name': 'Selenium', 'description': 'Tests para comprobar el correcto funcionamiento de la web'},
+            {'name': 'OLlama', 'description': 'IA para la creación de archivos clave para Django'}, 
+            {'name': 'Prometheus', 'description': 'Monitorización de sistemas'},
+        ],
+        'en': [
+            {'name': 'Django', 'description': 'Web development framework used for the entire site'},
+            {'name': 'Docker', 'description': 'Containers to configure and easily and safely deploy to production'},
+            {'name': 'Swarm', 'description': 'Swarms and clusters to scale projects while keeping resource usage low'},
+            {'name': 'Selenium', 'description': 'Tests to verify the correct operation of the website'},
+            {'name': 'OLlama', 'description': 'AI for creating key Django files'},
+            {'name': 'Prometheus', 'description': 'System monitoring'},
+        ],
+        'ca': [
+            {'name': 'Django', 'description': 'Framework de desenvolupament web utilitzat per a tot el lloc web'},
+            {'name': 'Docker', 'description': 'Contenidors per parametritzar i fer una pujada a producció fàcil i segura'},
+            {'name': 'Swarm', 'description': 'Swarms i clústers per escalar els projectes mantenint un baix consum de recursos'},
+            {'name': 'Selenium', 'description': 'Tests per comprovar el correcte funcionament del lloc web'},
+            {'name': 'OLlama', 'description': 'IA per a la creació d’arxius clau per a Django'}, 
+            {'name': 'Prometheus', 'description': 'Monitorització de sistemes'},
+        ]
+    }
+
+    features = features_dict.get(lang, features_dict['es'])
 
     return render(request, 'home.html', {'features': features})
+
+def verify_user(request, username):
+    user = get_object_or_404(User, username=username)
+    
+    if not user.validated:
+        user.validated = True
+        user.save()
+        messages.success(request, "Tu cuenta ha sido verificada correctamente.")
+    else:
+        messages.info(request, "Tu cuenta ya estaba verificada.")
+
+    return redirect('login')  # Asegúrate de que 'login' esté definido en tus urls
 
 # Create your views here.
 def signin(request):
@@ -67,7 +104,7 @@ def signin(request):
 
                     Para completar tu registro, por favor verifica tu dirección de correo electrónico haciendo clic en el siguiente enlace:
 
-                    {env('URL_MAIL')}/verify/{user.id}/
+                    {env('URL_MAIL')}/verify/{user.username}/
 
                     Si no has creado esta cuenta, puedes ignorar este mensaje.
 
@@ -77,6 +114,7 @@ def signin(request):
             send=False,
             user=user
         )
+        mail.save()
 
         # Aquí puedes enviar el correo si lo necesitas
 
@@ -92,8 +130,84 @@ def dashboard(request):
     request.session.pop('llama_system', None)
     return render(request, 'dashboard.html', {'projects': projects})
 
+@login_required(login_url='login')
+def change_password(request):
+    if request.method == 'POST':
+        password = request.POST.get('password')
+        password_confirm = request.POST.get('password_confirm')
+
+        if password != password_confirm:
+            messages.error(request, "Las contraseñas no coinciden.")
+        else:
+            user = request.user
+            user.set_password(password)
+            user.save()
+            update_session_auth_hash(request, user)  # ✅ mantiene al usuario logueado
+            messages.success(request, "Contraseña cambiada correctamente.")
+
+        return redirect('dashboard')
+
+    return redirect('dashboard')
+
 def recover(request):
+    if request.method == "POST":
+        email = request.POST.get("email")
+
+        try:
+            user = User.objects.get(email=email)
+            token = default_token_generator.make_token(user)
+            uid = user.id
+            reset_link = f"{env('URL_MAIL')}/new_password/{uid}/{token}/"
+
+            mail = Mail(
+                subject="Recuperacion de contrasena - Djangify",
+                body=f"""
+                    Hola {user.username},
+
+                    Hemos recibido una solicitud para restablecer la contraseña de tu cuenta en Djangify.
+
+                    Para crear una nueva contraseña, haz clic en el siguiente enlace:
+
+                    {reset_link}
+
+                    Este enlace es válido solo por un tiempo limitado y solo puede usarse una vez.  
+                    Si no solicitaste el restablecimiento, ignora este mensaje.
+
+                    Saludos,  
+                    El equipo de Djangify.
+                """,
+                send=False,
+                user=user
+            )
+            mail.save()
+
+            messages.success(request, "Correo de recuperación enviado.")
+
+        except ObjectDoesNotExist:
+            messages.error(request, "No existe un usuario con ese correo.")
+
     return render(request, 'recover.html')
+
+def new_password(request, uid, token):
+    user = get_object_or_404(User, pk=uid)
+
+    if not default_token_generator.check_token(user, token):
+        messages.error(request, "El enlace no es válido o ha expirado.")
+        return redirect('login')
+
+    if request.method == "POST":
+        password = request.POST.get("password")
+        confirm = request.POST.get("confirm")
+
+        if password != confirm:
+            messages.error(request, "Las contraseñas no coinciden.")
+        else:
+            user.set_password(password)
+            user.save()
+            messages.success(request, "Contraseña restablecida correctamente.")
+            return redirect('login')
+
+    return render(request, 'reset_password.html', {'user': user})
 
 @require_POST
 @login_required

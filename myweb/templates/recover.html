@@ -25,16 +25,22 @@
                     <br> {% trans "para enviarte un correo con un codigo que utilizaras " %}
                     <br> {% trans "para actualizar tu contraseña" %}</p>
 
-                {% block content %}
-                    <form method="post">
-                        {% csrf_token %}
-                        <p>
-                            <label for="email">{% trans "Correo electrónico: "%}</label>
-                            <input type="email" class="form-recover-input" name="email" required>
-                        </p>
-                        <button type="submit">{% trans "Recuperar" %}</button>
-                    </form>
-                {% endblock %}
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                            <li class="{{ message.tags }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                
+                <form method="post">
+                    {% csrf_token %}
+                    <p>
+                        <label for="email">{% trans "Correo electrónico:" %}</label>
+                        <input type="email" id="email" name="email" class="form-recover-input" required>
+                    </p>
+                    <button type="submit">{% trans "Recuperar" %}</button>
+                </form>
 
                 <p class="links">
                     {% trans "¿Ya tienes cuenta?" %} <a href="/login">{% trans "Inicia sesión aquí" %}</a><br>

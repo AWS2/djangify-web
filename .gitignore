@@ -7,3 +7,6 @@
 db.sqlite3
 .coverage
 __pycache__
+composer.json
+composer.lock
+**/vendor/

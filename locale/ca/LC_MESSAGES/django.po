@@ -2,55 +2,546 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
-#, fuzzy
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-25 15:48+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2025-06-04 23:27+0200\n"
+"PO-Revision-Date: 2025-06-04 23:35+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language-Team: Catalan <LL@li.org>\n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: myweb/templates/cookies.html:8 myweb/templates/cookies.html:15
-#, fuzzy
-#| msgid "Politica Cookies"
 msgid "Política de Cookies"
 msgstr "Política de galetes"
 
+msgid "¿Qué son las cookies?"
+msgstr "Què són les galetes?"
+
+msgid ""
+"Las cookies son pequeños archivos de texto que los sitios web colocan en su "
+"navegador para \n"
+"                mejorar la experiencia del usuario. Entre otras funciones, "
+"permiten que un sitio recuerde \n"
+"                sus acciones y preferencias (como inicio de sesión, idioma, "
+"tamaño de fuente y otras \n"
+"                configuraciones) durante un período de tiempo, para que no "
+"tenga que volver a configurarlas \n"
+"                cada vez que regrese al sitio o navegue entre sus páginas."
+msgstr ""
+"Les galetes són petits fitxers de text que els llocs web col·loquen al "
+"navegador per millorar \n"
+"                l'experiència de l'usuari. Entre altres funcions, permeten "
+"que un lloc recordi les seves accions \n"
+"                i preferències (com l'inici de sessió, l'idioma, la mida de "
+"lletra i altres configuracions) \n"
+"                durant un període de temps, de manera que no calgui tornar a "
+"configurar-les cada vegada que \n"
+"                es torni al lloc o es navegui entre les seves pàgines."
+
+msgid "¿Qué cookies utiliza djangify.ieti.site?"
+msgstr "Quines galetes utilitza djangify.ieti.site?"
+
+msgid "1. Cookies técnicas o necesarias"
+msgstr "1. Galetes tècniques o necessàries"
+
+msgid ""
+"Estas cookies son imprescindibles para el correcto funcionamiento del sitio "
+"web y no pueden \n"
+"                ser desactivadas. Se utilizan, por ejemplo, para recordar su "
+"consentimiento de cookies, \n"
+"                gestionar la sesión del usuario o proteger el sitio frente a "
+"ataques."
+msgstr ""
+"Aquestes galetes són imprescindibles per al correcte funcionament del lloc "
+"web i no poden ser \n"
+"                desactivades. S'utilitzen, per exemple, per recordar el seu "
+"consentiment sobre les galetes, \n"
+"                gestionar la sessió de l'usuari o protegir el lloc contra "
+"atacs."
+
+msgid "2. Cookies de análisis (Google Analytics)"
+msgstr "2. Galetes d'anàlisi (Google Analytics)"
+
+msgid ""
+"Este sitio web utiliza <strong>Google Analytics</strong> para obtener "
+"estadísticas anónimas \n"
+"                sobre la navegación de los usuarios. Con esta información "
+"podemos entender cómo interactúan \n"
+"                los visitantes con el sitio y mejorar la experiencia de "
+"usuario."
+msgstr ""
+"Aquest lloc web utilitza <strong>Google Analytics</strong> per obtenir "
+"estadístiques anònimes \n"
+"                sobre la navegació dels usuaris. Amb aquesta informació, "
+"podem entendre com interactuen \n"
+"                els visitants amb el lloc i millorar-ne l'experiència."
+
+msgid ""
+"Google recopila datos como la dirección IP (anónimamente), páginas "
+"visitadas, duración de la sesión, \n"
+"                navegador utilizado, entre otros."
+msgstr ""
+"Google recopila dades com l'adreça IP (de forma anònima), les pàgines "
+"visitades, la durada de la sessió, \n"
+"                el navegador utilitzat, entre d'altres."
+
+msgid "Para más información, puedes consultar la política de privacidad de Google:"
+msgstr "Per a més informació, pots consultar la política de privacitat de Google:"
+
+msgid ""
+"Si deseas desactivar Google Analytics, puedes instalar este \n"
+"                complemento en tu navegador:"
+msgstr ""
+"Si vols desactivar Google Analytics, pots instal·lar aquest \n"
+"                complement al teu navegador:"
+
+msgid "3. Cookies de personalización"
+msgstr "3. Galetes de personalització"
+
+msgid ""
+"Estas cookies permiten al sitio recordar elecciones que usted ha hecho (como "
+"su idioma preferido) \n"
+"                y proporcionar características mejoradas y más personales. "
+"La información recopilada por estas \n"
+"                cookies puede ser anonimizada y no puede rastrear su "
+"actividad en otros sitios web."
+msgstr ""
+"Aquestes galetes permeten al lloc recordar les eleccions que has fet (com "
+"el teu idioma preferit) \n"
+"                i oferir característiques millorades i més personalitzades. "
+"La informació recollida per aquestes \n"
+"                galetes pot ser anonimitzada i no pot rastrejar la teva "
+"activitat en altres llocs web."
+
+msgid "4. Cookies de redes sociales (GitHub)"
+msgstr "4. Galetes de xarxes socials (GitHub)"
+
+msgid ""
+"En Djangify proporcionamos enlaces a nuestra cuenta oficial de "
+"<strong>GitHub</strong>. Aunque \n"
+"                no utilizamos integraciones embebidas que instalen cookies "
+"directamente, GitHub puede recopilar \n"
+"                información sobre su interacción si accede a través de "
+"nuestros enlaces. Recomendamos consultar \n"
+"                su política de privacidad para más información:"
+msgstr ""
+"A Djangify proporcionem enllaços al nostre compte oficial de "
+"<strong>GitHub</strong>. Tot i que \n"
+"                no utilitzem integracions incrustades que instal·lin galetes "
+"directament, GitHub pot recopilar \n"
+"                informació sobre la teva interacció si accedeixes a través "
+"dels nostres enllaços. Et recomanem consultar \n"
+"                la seva política de privacitat per a més informació:"
+
+msgid "¿Durante cuánto tiempo se almacenan las cookies?"
+msgstr "Durant quant de temps s'emmagatzemen les galetes?"
+
+msgid ""
+"La duración del almacenamiento de cookies depende del tipo específico. "
+"Algunas se eliminan \n"
+"                automáticamente al cerrar el navegador (cookies de sesión), "
+"mientras que otras pueden \n"
+"                permanecer durante un período más largo (cookies "
+"persistentes). No utilizamos cookies \n"
+"                con una duración mayor a la estrictamente necesaria."
+msgstr ""
+"La durada de l'emmagatzematge de les galetes depèn del tipus específic. "
+"Algunes s'eliminen \n"
+"                automàticament en tancar el navegador (galetes de sessió), "
+"mentre que altres poden \n"
+"                romandre durant un període més llarg (galetes persistents). "
+"No utilitzem galetes \n"
+"                amb una durada superior a la estrictament necessària."
+
+msgid "¿Cómo puede gestionar o desactivar las cookies?"
+msgstr "Com pots gestionar o desactivar les galetes?"
+
+msgid ""
+"Puede configurar su navegador para bloquear o eliminar cookies. Sin embargo, "
+"esto puede \n"
+"                afectar su experiencia en el sitio web, ya que algunas "
+"funciones podrían dejar de estar \n"
+"                disponibles."
+msgstr ""
+"Pots configurar el teu navegador per bloquejar o eliminar galetes. Tot i "
+"això, això pot \n"
+"                afectar la teva experiència al lloc web, ja que algunes "
+"funcionalitats podrien deixar d'estar \n"
+"                disponibles."
+
+msgid "Aquí tienes enlaces a instrucciones para los navegadores más comunes:"
+msgstr "Aquí tens enllaços a les instruccions per als navegadors més comuns:"
+
+msgid "Google Chrome"
+msgstr "Google Chrome"
+
+msgid "Mozilla Firefox"
+msgstr "Mozilla Firefox"
+
+msgid "Safari"
+msgstr "Safari"
+
+msgid "Microsoft Edge"
+msgstr "Microsoft Edge"
+
+msgid "Consentimiento"
+msgstr "Consentiment"
+
+msgid ""
+"Al acceder por primera vez a nuestro sitio web <strong>djangify.ieti.site</"
+"strong>, se le \n"
+"                mostrará un aviso emergente sobre el uso de cookies. En "
+"dicho aviso, usted podrá:"
+msgstr ""
+"En accedir per primera vegada al nostre lloc web <strong>djangify.ieti.site</"
+"strong>, \n"
+"                se't mostrarà un avís emergent sobre l'ús de galetes. En "
+"aquest avís podràs:"
+
+msgid "Aceptar"
+msgstr "Acceptar"
+
+msgid "todas las cookies."
+msgstr "totes les galetes."
+
+msgid "Rechazar"
+msgstr "Rebutjar"
+
+msgid "todas las cookies no esenciales."
+msgstr "totes les galetes no essencials."
+
+msgid ""
+"Este sistema de consentimiento garantiza que ninguna cookie que no sea \n"
+"                estrictamente necesaria se instalará en su navegador sin su "
+"autorización previa, \n"
+"                en cumplimiento del Reglamento (UE) 2016/679 (RGPD) y la Ley "
+"34/2002 (LSSI-CE)."
+msgstr ""
+"Aquest sistema de consentiment garanteix que cap galeta que no sigui \n"
+"                estrictament necessària s'instal·larà al teu navegador sense "
+"la teva autorització prèvia, \n"
+"                en compliment del Reglament (UE) 2016/679 (RGPD) i la Llei "
+"34/2002 (LSSI-CE)."
+
+msgid ""
+"Usted puede modificar o retirar su consentimiento en cualquier momento "
+"accediendo al panel \n"
+"                de configuración disponible en el pie de página o a través "
+"de la configuración de su navegador."
+msgstr ""
+"Pots modificar o retirar el teu consentiment en qualsevol moment accedint al "
+"panell \n"
+"                de configuració disponible al peu de pàgina o a través de la "
+"configuració del teu navegador."
+
+msgid "Modificaciones a esta Política"
+msgstr "Modificacions d'aquesta Política"
+
+msgid ""
+"Podemos modificar esta Política de Cookies en cualquier momento para "
+"adaptarla a cambios legislativos, \n"
+"                técnicos o por decisiones internas. Le recomendamos revisar "
+"esta página periódicamente."
+msgstr ""
+"Podem modificar aquesta Política de Galetes en qualsevol moment per adaptar-la "
+"a canvis legislatius, \n"
+"                tècnics o per decisions internes. Et recomanem revisar aquesta "
+"pàgina periòdicament."
+
 #: myweb/templates/dashboard.html:8
 msgid "Dashboard"
-msgstr ""
+msgstr "Tauler de control"
 
-#: myweb/templates/dashboard.html:20
-msgid "Crear Proyecto"
-msgstr ""
+#: myweb/templates/dashboard.html:43
+msgid "Proyectos"
+msgstr "Projectes"
+
+#: myweb/templates/dashboard.html:46 myweb/templates/home.html:29
+msgid "Crea tu proyecto"
+msgstr "Crea el teu projecte"
+
+#: myweb/templates/dashboard.html:49
+msgid "Límite alcanzado"
+msgstr "Límit assolit"
+
+#: myweb/templates/dashboard.html:54
+msgid "Aun no estas validado"
+msgstr "Encara no estàs validat"
+
+#: myweb/templates/dashboard.html:80
+msgid "Todavía no hay proyectos"
+msgstr "Encara no hi ha projectes"
 
 #: myweb/templates/home.html:8
 msgid "Home"
-msgstr ""
+msgstr "Inici"
 
-#: myweb/templates/home.html:24
-msgid "Crea tu proyecto"
+#: myweb/templates/home.html:15
+msgid ""
+"Este sitio utiliza cookies para mejorar tu experiencia. ¿Aceptas el uso de "
+"cookies?"
 msgstr ""
+"Aquest lloc utilitza galetes per millorar la teva experiència. Acceptes l'ús "
+"de galetes?"
+
+#: myweb/templates/home.html:23 myweb/templates/new_password.html:22
+msgid "Logo Djangify"
+msgstr "Logotip Djangify"
 
 #: myweb/templates/home.html:25
-msgid "Source Code"
+msgid "Subir a produccion nunca fue facil pero ahora es posible con"
+msgstr "Pujar a producció mai va ser fàcil però ara és possible amb"
+
+#: myweb/templates/home.html:26
+msgid ""
+"es una herramienta que simplifica el proceso de creacion y subida a "
+"produccion de Djangos a traves de la utilizacion de herramientas IA y "
+"contenedores Docker."
 msgstr ""
+"és una eina que simplifica el procés de creació i pujada a producció de "
+"Django a través de la utilització d'eines d'IA i contenidors Docker."
+
+#: myweb/templates/home.html:30
+msgid "Source Code"
+msgstr "Codi font"
+
+#: myweb/templates/home.html:36
+msgid "About"
+msgstr "Sobre nosaltres"
+
+#: myweb/templates/home.html:39
+msgid ""
+"Este proyecto representa una apuesta innovadora por la automatización "
+"inteligente del despliegue seguro de aplicaciones web basadas en Django. El "
+"objetivo es claro: reducir la complejidad técnica que habitualmente conlleva "
+"poner en producción una aplicación, y hacerlo posible con la ayuda de la "
+"inteligencia artificial. Gracias a esta solución, cualquier equipo técnico "
+"puede centrarse en desarrollar valor, mientras la plataforma se encarga de "
+"la configuración, la seguridad y la infraestructura."
+msgstr ""
+"Aquest projecte representa una aposta innovadora per l'automatització "
+"intel·ligent del desplegament segur d'aplicacions web basades en Django. "
+"L'objectiu és clar: reduir la complexitat tècnica que habitualment comporta "
+"posar en producció una aplicació, i fer-ho possible amb l'ajuda de la "
+"intel·ligència artificial. Gràcies a aquesta solució, qualsevol equip tècnic "
+"pot centrar-se a desenvolupar valor, mentre la plataforma s'encarrega de la "
+"configuració, la seguretat i la infraestructura."
+
+#: myweb/templates/home.html:40
+msgid ""
+"La herramienta desarrollada permite generar proyectos Django completos de "
+"forma asistida, incluyendo la creación de modelos y paneles de "
+"administración, todo ello con soporte de una IA local —basada en marIA— que "
+"guía y agiliza cada paso mediante prompts personalizados y generación de "
+"código automatizada. Esta IA no solo acelera el desarrollo, sino que también "
+"ayuda a mantener buenas prácticas y coherencia en toda la arquitectura del "
+"sistema."
+msgstr ""
+"L'eina desenvolupada permet generar projectes Django complets de forma "
+"assistida, incloent la creació de models i panells d'administració, tot això "
+"amb suport d'una IA local —basada en marIA— que guia i agilitza cada pas "
+"mitjançant prompts personalitzats i generació de codi automatitzada. Aquesta "
+"IA no només accelera el desenvolupament, sinó que també ajuda a mantenir "
+"bones pràctiques i coherència en tota l'arquitectura del sistema."
+
+#: myweb/templates/home.html:41
+msgid ""
+"Una vez generada la aplicación, el sistema automatiza su contenedorización "
+"utilizando Docker, y su posterior despliegue seguro en entornos escalables "
+"como Docker Swarm o Kubernetes. Se incorporan herramientas modernas de "
+"automatización como Ansible y GitHub Actions, que garantizan un flujo CI/CD "
+"robusto y reproducible desde el primer commit hasta la producción."
+msgstr ""
+"Un cop generada l'aplicació, el sistema automatitza la seva contenidorització "
+"utilitzant Docker, i el seu posterior desplegament segur en entorns escalables "
+"com Docker Swarm o Kubernetes. S'incorporen eines modernes d'automatització "
+"com Ansible i GitHub Actions, que garanteixen un flux CI/CD robust i "
+"reproduïble des del primer commit fins a la producció."
+
+#: myweb/templates/home.html:42
+msgid ""
+"La seguridad es un pilar fundamental del proyecto. Se integran herramientas "
+"como OWASP ZAP, Nmap y Metasploit para el escaneo de vulnerabilidades y la "
+"realización de pruebas de penetración controladas. Además, se configura un "
+"sistema de protección basado en cortafuegos (iptables/UFW), cifrado de datos "
+"sensibles con GPG y validación automatizada de los requisitos de seguridad "
+"antes de cada despliegue."
+msgstr ""
+"La seguretat és un pilar fonamental del projecte. S'integren eines com OWASP "
+"ZAP, Nmap i Metasploit per a l'escaneig de vulnerabilitats i la realització "
+"de proves de penetració controlades. A més, es configura un sistema de "
+"protecció basat en tallafocs (iptables/UFW), xifrat de dades sensibles amb "
+"GPG i validació automatitzada dels requisits de seguretat abans de cada "
+"desplegament."
+
+#: myweb/templates/home.html:43
+msgid ""
+"El ecosistema se completa con una solución de monitorización en tiempo real "
+"mediante Prometheus y Grafana, lo que permite tener una visión clara del "
+"rendimiento y la seguridad del sistema. Desde la creación de dominios "
+"personalizados hasta la orquestación de múltiples servicios, todo está "
+"diseñado para facilitar la escalabilidad y la gestión profesional de "
+"aplicaciones Django en producción."
+msgstr ""
+"L'ecosistema es completa amb una solució de monitorització en temps real "
+"mitjançant Prometheus i Grafana, la qual cosa permet tenir una visió clara "
+"del rendiment i la seguretat del sistema. Des de la creació de dominis "
+"personalitzats fins a l'orquestració de múltiples serveis, tot està dissenyat "
+"per facilitar l'escalabilitat i la gestió professional d'aplicacions Django "
+"en producció."
+
+#: myweb/templates/home.html:44
+msgid ""
+"Este proyecto no es solo una herramienta técnica; es una plataforma "
+"educativa, colaborativa y potente que demuestra cómo la inteligencia "
+"artificial puede integrarse de forma natural en el ciclo de vida de "
+"desarrollo de software moderno. Con un enfoque práctico y enfocado a "
+"resultados, el sistema busca revolucionar la forma en que se despliegan "
+"aplicaciones web, ofreciendo una experiencia segura, automatizada y "
+"preparada para los desafíos del mundo real."
+msgstr ""
+"Aquest projecte no és només una eina tècnica; és una plataforma educativa, "
+"col·laborativa i potent que demostra com la intel·ligència artificial pot "
+"integrar-se de forma natural en el cicle de vida de desenvolupament de "
+"programari modern. Amb un enfocament pràctic i orientat a resultats, el "
+"sistema busca revolucionar la forma en què es despleguen aplicacions web, "
+"oferint una experiència segura, automatitzada i preparada per als reptes "
+"del món real."
+
+#: myweb/templates/home.html:47 myweb/templates/new_password.html:17
+msgid "Imagen de bienvenida"
+msgstr "Imatge de benvinguda"
+
+#: myweb/templates/home.html:53
+msgid "Features"
+msgstr "Característiques"
 
 #: myweb/templates/legal_advice.html:8 myweb/templates/legal_advice.html:15
-#: myweb/templates/privacy.html:8 myweb/templates/privacy.html:15
-#: myweb/templates/terms_use.html:8 myweb/templates/terms_use.html:15
-#, fuzzy
-#| msgid "Politica de Privacidad"
-msgid "Politica de privacidad"
-msgstr "Política de privacitat"
+#: myweb/templates/partials/footer.html:16
+msgid "Aviso Legal"
+msgstr "Avís legal"
+
+#: myweb/templates/legal_advice.html:18
+msgid "1. Titularidad del sitio web"
+msgstr "1. Titularitat del lloc web"
+
+#: myweb/templates/legal_advice.html:19
+msgid ""
+"En cumplimiento de la Ley 34/2002, de 11 de julio, de servicios de la "
+"sociedad de la información y de comercio electrónico (LSSI-CE), se informa "
+"que este sitio web pertenece a:"
+msgstr ""
+"En compliment de la Llei 34/2002, d'11 de juliol, de serveis de la societat "
+"de la informació i de comerç electrònic (LSSI-CE), s'informa que aquest "
+"lloc web pertany a:"
+
+#: myweb/templates/legal_advice.html:21
+msgid "Nombre de la plataforma: Djangify"
+msgstr "Nom de la plataforma: Djangify"
+
+#: myweb/templates/legal_advice.html:22
+msgid "Titulares: Enric Mieza y Toni Verges"
+msgstr "Titulars: Enric Mieza i Toni Verges"
+
+#: myweb/templates/legal_advice.html:23
+msgid "Correo de contacto: contacto@djangify.ieti.site"
+msgstr "Correu de contacte: contacto@djangify.ieti.site"
+
+#: myweb/templates/legal_advice.html:24
+msgid "Dominio web: https://djangify.ieti.site/"
+msgstr "Domini web: https://djangify.ieti.site/"
+
+#: myweb/templates/legal_advice.html:27
+msgid "2. Objeto"
+msgstr "2. Objecte"
+
+#: myweb/templates/legal_advice.html:28
+msgid ""
+"El presente Aviso Legal regula el uso del sitio web djangify.ieti.site, cuyo "
+"objetivo es ofrecer herramientas, contenido formativo y recursos para el "
+"desarrollo de proyectos con Django."
+msgstr ""
+"El present Avís Legal regula l'ús del lloc web djangify.ieti.site, l'objectiu "
+"del qual és oferir eines, contingut formatiu i recursos per al desenvolupament "
+"de projectes amb Django."
+
+#: myweb/templates/legal_advice.html:30
+msgid "3. Condiciones de uso"
+msgstr "3. Condicions d'ús"
+
+#: myweb/templates/legal_advice.html:31
+msgid ""
+"El acceso y uso del sitio web implica la aceptación de las presentes "
+"condiciones, así como de los Términos de Uso y, en su caso, de la Política "
+"de Privacidad y de Cookies. El usuario se compromete a hacer un uso adecuado "
+"del sitio y a no llevar a cabo actividades ilícitas, fraudulentas o que "
+"infrinjan derechos de terceros."
+msgstr ""
+"L'accés i ús del lloc web implica l'acceptació d'aquestes condicions, així "
+"com dels Termes d'Ús i, si escau, de la Política de Privacitat i de Galetes. "
+"L'usuari es compromet a fer un ús adequat del lloc i a no dur a terme "
+"activitats il·lícites, fraudulentes o que infringeixin drets de tercers."
+
+#: myweb/templates/legal_advice.html:33
+msgid "4. Propiedad intelectual"
+msgstr "4. Propietat intel·lectual"
+
+#: myweb/templates/legal_advice.html:34
+msgid ""
+"Todos los contenidos del sitio (textos, imágenes, código, diseño, etc.) son "
+"propiedad de sus titulares, salvo aquellos publicados bajo licencias de "
+"código abierto debidamente indicadas. Queda prohibida su reproducción, "
+"distribución o uso no autorizado."
+msgstr ""
+"Tots els continguts del lloc (textos, imatges, codi, disseny, etc.) són "
+"propietat dels seus titulars, excepte aquells publicats sota llicències de "
+"codi obert degudament indicades. Queda prohibida la seva reproducció, "
+"distribució o ús no autoritzat."
+
+#: myweb/templates/legal_advice.html:36
+msgid "5. Responsabilidad"
+msgstr "5. Responsabilitat"
+
+#: myweb/templates/legal_advice.html:37
+msgid ""
+"Djangify no se hace responsable de posibles errores en el contenido, "
+"interrupciones del servicio o daños derivados del uso del sitio, salvo "
+"disposición legal en contrario."
+msgstr ""
+"Djangify no es fa responsable de possibles errors en el contingut, "
+"interrupcions del servei o danys derivats de l'ús del lloc, excepte "
+"disposició legal en contra."
+
+#: myweb/templates/legal_advice.html:39
+msgid "6. Enlaces externos"
+msgstr "6. Enllaços externs"
+
+#: myweb/templates/legal_advice.html:40
+msgid ""
+"En el sitio pueden incluirse enlaces a páginas externas. Djangify no se "
+"responsabiliza del contenido ni del funcionamiento de dichas páginas."
+msgstr ""
+"Al lloc poden incloure-s'hi enllaços a pàgines externes. Djangify no es "
+"responsabilitza del contingut ni del funcionament d'aquestes pàgines."
+
+#: myweb/templates/legal_advice.html:42
+msgid "7. Legislación aplicable"
+msgstr "7. Legislació aplicable"
+
+#: myweb/templates/legal_advice.html:43
+msgid ""
+"Este aviso se rige por la legislación española. Para cualquier controversia, "
+"las partes se someterán a los juzgados y tribunales del domicilio del "
+"usuario."
+msgstr ""
+"Aquest avís es regeix per la legislació espanyola. Per a qualsevol controvèrsia, "
+"les parts se sotmetran als jutjats i tribunals del domicili de l'usuari."
 
 #: myweb/templates/login.html:8 myweb/templates/login.html:29
 msgid "Iniciar sesión"
@@ -64,17 +555,65 @@ msgstr "Tens un compte?"
 msgid "¡Inicia sesión!"
 msgstr "Inicia sessió!"
 
-#: myweb/templates/login.html:34 myweb/templates/recover.html:41
+#: myweb/templates/login.html:34 myweb/templates/recover.html:47
 msgid "¿No tienes cuenta? "
 msgstr "No tens un compte? "
 
-#: myweb/templates/login.html:34 myweb/templates/recover.html:41
+#: myweb/templates/login.html:34 myweb/templates/recover.html:47
 msgid "Crea una aquí"
 msgstr "Crea'n un aquí"
 
 #: myweb/templates/login.html:35
 msgid "¿Olvidaste tu contraseña? "
-msgstr "Has oblidat la teva contrasenya?"
+msgstr "Has oblidat la teva contrasenya? "
+
+#: myweb/templates/new_password.html:8 myweb/templates/recover.html:8
+msgid "Recuperar contraseña"
+msgstr "Recuperar contrasenya"
+
+#: myweb/templates/new_password.html:23
+msgid "Restablecer contraseña"
+msgstr "Restablir contrasenya"
+
+#: myweb/templates/new_password.html:33
+msgid "Nueva contraseña:"
+msgstr "Nova contrasenya:"
+
+#: myweb/templates/new_password.html:36
+msgid "Confirmar contraseña:"
+msgstr "Confirmar contrasenya:"
+
+#: myweb/templates/new_password.html:39
+msgid "Guardar contraseña"
+msgstr "Desar contrasenya"
+
+#: myweb/templates/new_project.html:8
+msgid "Nuevo Proyecto"
+msgstr "Nou Projecte"
+
+#: myweb/templates/new_project.html:17
+msgid "Pon tu título aquí"
+msgstr "Posa el teu títol aquí"
+
+#: myweb/templates/new_project.html:25
+msgid "Hola 👋, ¿en qué puedo ayudarte con tu proyecto?"
+msgstr "Hola 👋, en què et puc ajudar amb el teu projecte?"
+
+#: myweb/templates/new_project.html:30
+msgid "Escribe tu mensaje aquí..."
+msgstr "Escriu el teu missatge aquí..."
+
+#: myweb/templates/new_project.html:33
+msgid "Volver"
+msgstr "Tornar"
+
+#: myweb/templates/new_project.html:41
+msgid "Guardar proyecto"
+msgstr "Desar projecte"
+
+#: myweb/templates/new_project.html:46
+msgid "Enviar"
+msgstr "Enviar"
 
 #: myweb/templates/partials/footer.html:14
 msgid "Politica Cookies"
@@ -84,127 +623,147 @@ msgstr "Política de galetes"
 msgid "Politica de Privacidad"
 msgstr "Política de privacitat"
 
-#: myweb/templates/partials/footer.html:16
-msgid "Aviso Legal"
-msgstr "Avís legal"
-
 #: myweb/templates/partials/footer.html:17
 msgid "Términos y Condiciones de Uso"
-msgstr "Termes i condicions d’ús"
+msgstr "Termes i condicions d'ús"
+
+#: myweb/templates/partials/header.html:12
+#, fuzzy
+#| msgid "Iniciar sesión"
+msgid "Cerrar sesión"
+msgstr "Tancar sessió"
+
+#: myweb/templates/privacy.html:8 myweb/templates/privacy.html:15
+#, fuzzy
+#| msgid "Politica de Privacidad"
+msgid "Politica de privacidad"
+msgstr "Política de privacitat"
 
 #: myweb/templates/privacy.html:18
 msgid "Fecha de entrada en vigor: 18 de mayo de 2025"
-msgstr ""
+msgstr "Data d'entrada en vigor: 18 de maig de 2025"
 
 #: myweb/templates/privacy.html:20
 msgid "1. Responsable del tratamiento"
-msgstr ""
+msgstr "1. Responsable del tractament"
 
 #: myweb/templates/privacy.html:21
 msgid "Los responsables del tratamiento de sus datos personales son:"
-msgstr ""
+msgstr "Els responsables del tractament de les vostres dades personals són:"
 
-#: myweb/templates/privacy.html:22
+#: myweb/templates/privacy.html:22 myweb/templates/terms_use.html:59
 msgid "Enric Mieza y Toni Verges"
-msgstr ""
+msgstr "Enric Mieza i Toni Verges"
 
 #: myweb/templates/privacy.html:23
 #, fuzzy
 #| msgid "Correo electrónico: "
 msgid "Correo electrónico de contacto:"
-msgstr "Correu electrònic: "
+msgstr "Correu electrònic de contacte:"
 
 #: myweb/templates/privacy.html:25
 msgid "2. Datos que recopilamos"
-msgstr ""
+msgstr "2. Dades que recopilem"
 
 #: myweb/templates/privacy.html:26
 msgid "En Djangify recogemos los siguientes datos personales:"
-msgstr ""
+msgstr "A Djangify recollim les següents dades personals:"
 
 #: myweb/templates/privacy.html:28
 msgid "Correo electrónico, cuando el usuario se registra o inicia sesión."
-msgstr ""
+msgstr "Correu electrònic, quan l'usuari es registra o inicia sessió."
 
 #: myweb/templates/privacy.html:29
 msgid ""
 "Datos de navegación mediante cookies analíticas (por ejemplo, páginas "
 "visitadas, tiempo de permanencia, navegador utilizado, etc.)."
 msgstr ""
+"Dades de navegació mitjançant cookies analítiques (per exemple, pàgines "
+"visitades, temps de permanència, navegador utilitzat, etc.)."
 
 #: myweb/templates/privacy.html:32
 msgid "3. Finalidad del tratamiento"
-msgstr ""
+msgstr "3. Finalitat del tractament"
 
 #: myweb/templates/privacy.html:33
 msgid "Tratamos sus datos con las siguientes finalidades:"
-msgstr ""
+msgstr "Tractem les vostres dades amb les següents finalitats:"
 
 #: myweb/templates/privacy.html:35
 msgid "Gestionar el acceso y uso de cuentas de usuario registradas."
-msgstr ""
+msgstr "Gestionar l'accés i ús de comptes d'usuari registrades."
 
 #: myweb/templates/privacy.html:36
 msgid "Responder a consultas o incidencias si nos contacta."
-msgstr ""
+msgstr "Respondre a consultes o incidències si ens contacteu."
 
 #: myweb/templates/privacy.html:37
 msgid ""
 "Obtener estadísticas de uso del sitio mediante Google Analytics, de forma "
 "anónima y agregada."
 msgstr ""
+"Obtenir estadístiques d'ús del lloc mitjançant Google Analytics, de forma "
+"anònima i agregada."
 
 #: myweb/templates/privacy.html:40
 msgid "4. Base legal para el tratamiento"
-msgstr ""
+msgstr "4. Base legal per al tractament"
 
 #: myweb/templates/privacy.html:41
 msgid "La base legal para el tratamiento de sus datos es:"
-msgstr ""
+msgstr "La base legal per al tractament de les vostres dades és:"
 
 #: myweb/templates/privacy.html:43
 msgid ""
 "Su consentimiento, otorgado al registrarse o al aceptar el uso de cookies."
 msgstr ""
+"El vostre consentiment, atorgat en registrar-vos o en acceptar l'ús de cookies."
 
 #: myweb/templates/privacy.html:44
 msgid ""
 "La ejecución de un contrato, en el caso del uso de la funcionalidad de login."
 msgstr ""
+"L'execució d'un contracte, en el cas de l'ús de la funcionalitat de login."
 
 #: myweb/templates/privacy.html:45
 msgid ""
 "Interés legítimo, en el caso de cookies necesarias para el funcionamiento "
 "del sitio."
 msgstr ""
+"Interès legítim, en el cas de cookies necessàries per al funcionament "
+"del lloc."
 
 #: myweb/templates/privacy.html:48
 msgid "5. Destinatarios de los datos"
-msgstr ""
+msgstr "5. Destinataris de les dades"
 
 #: myweb/templates/privacy.html:49
 msgid "No se cederán datos a terceros, salvo obligación legal."
-msgstr ""
+msgstr "No es cediran dades a tercers, excepte obligació legal."
 
 #: myweb/templates/privacy.html:50
 msgid "El único tercero con acceso a datos es:"
-msgstr ""
+msgstr "L'únic tercer amb accés a dades és:"
 
 #: myweb/templates/privacy.html:52
 msgid ""
 "Google LLC, a través del servicio Google Analytics (ver política de "
 "privacidad: "
 msgstr ""
+"Google LLC, a través del servei Google Analytics (veure política de "
+"privacitat: "
 
 #: myweb/templates/privacy.html:54
 msgid ""
 "Google puede transferir datos a EE.UU. bajo cláusulas contractuales tipo "
 "aprobadas por la Comisión Europea."
 msgstr ""
+"Google pot transferir dades als EUA sota clàusules contractuals tipus "
+"aprovades per la Comissió Europea."
 
 #: myweb/templates/privacy.html:56
 msgid "6. Conservación de los datos"
-msgstr ""
+msgstr "6. Conservació de les dades"
 
 #: myweb/templates/privacy.html:57
 msgid ""
@@ -212,56 +771,63 @@ msgid ""
 "sea necesario para cumplir con la finalidad para la que fueron recopilados. "
 "Posteriormente, serán eliminados o anonimizados."
 msgstr ""
+"Conservem les vostres dades personals mentre tingueu un compte actiu o mentre "
+"sigui necessari per complir amb la finalitat per a la qual van ser recopilades. "
+"Posteriorment, seran eliminades o anonimitzades."
 
 #: myweb/templates/privacy.html:59
 #, fuzzy
 #| msgid "Nombre de usuario: "
 msgid "7. Derechos del usuario"
-msgstr "Nom d'usuari: "
+msgstr "7. Drets de l'usuari"
 
 #: myweb/templates/privacy.html:60
 msgid "Usted tiene derecho a:"
-msgstr ""
+msgstr "Teniu dret a:"
 
 #: myweb/templates/privacy.html:62
 msgid "Acceder a sus datos personales."
-msgstr ""
+msgstr "Accedir a les vostres dades personals."
 
 #: myweb/templates/privacy.html:63
 msgid "Solicitar su rectificación o supresión."
-msgstr ""
+msgstr "Sol·licitar la seva rectificació o supressió."
 
 #: myweb/templates/privacy.html:64
 msgid "Limitar u oponerse a su tratamiento."
-msgstr ""
+msgstr "Limitar o oposar-se al seu tractament."
 
 #: myweb/templates/privacy.html:65
 msgid "Retirar su consentimiento en cualquier momento."
-msgstr ""
+msgstr "Retirar el vostre consentiment en qualsevol moment."
 
 #: myweb/templates/privacy.html:66
 msgid ""
 "Presentar una reclamación ante la Agencia Española de Protección de Datos "
 "(www.aepd.es)."
 msgstr ""
+"Presentar una reclamació davant l'Agència Espanyola de Protecció de Dades "
+"(www.aepd.es)."
 
 #: myweb/templates/privacy.html:68
 msgid "Puede ejercer sus derechos escribiéndonos a:"
-msgstr ""
+msgstr "Podeu exercir els vostres drets escrivint-nos a:"
 
 #: myweb/templates/privacy.html:70
 msgid "8. Menores de edad"
-msgstr ""
+msgstr "8. Menors d'edat"
 
 #: myweb/templates/privacy.html:71
 msgid ""
 "Este sitio web no está dirigido a menores de 14 años. No recopilamos "
 "conscientemente información personal de menores."
 msgstr ""
+"Aquest lloc web no està dirigit a menors de 14 anys. No recopilem "
+"conscientment informació personal de menors."
 
 #: myweb/templates/privacy.html:73
 msgid "9. Cambios en esta política"
-msgstr ""
+msgstr "9. Canvis en aquesta política"
 
 #: myweb/templates/privacy.html:74
 msgid ""
@@ -269,10 +835,9 @@ msgid ""
 "futuras novedades legales o técnicas. Le recomendamos revisarla "
 "periódicamente."
 msgstr ""
-
-#: myweb/templates/recover.html:8
-msgid "Recuperar contraseña"
-msgstr "Recuperar contrasenya"
+"Ens reservem el dret de modificar aquesta política per adaptar-la a "
+"futures novetats legals o tècniques. Us recomanem revisar-la "
+"periòdicament."
 
 #: myweb/templates/recover.html:23
 msgid "Recuperar contraseña:"
@@ -290,19 +855,21 @@ msgstr "per enviar-te un correu amb un codi que utilitzaràs "
 msgid "para actualizar tu contraseña"
 msgstr "per actualitzar la teva contrasenya"
 
-#: myweb/templates/recover.html:32 myweb/templates/signin.html:33
-msgid "Correo electrónico: "
-msgstr "Correu electrònic: "
+#: myweb/templates/recover.html:39 myweb/templates/terms_use.html:60
+#, fuzzy
+#| msgid "Correo electrónico: "
+msgid "Correo electrónico:"
+msgstr "Correu electrònic:"
 
-#: myweb/templates/recover.html:35
+#: myweb/templates/recover.html:42
 msgid "Recuperar"
 msgstr "Recuperar"
 
-#: myweb/templates/recover.html:40 myweb/templates/signin.html:49
+#: myweb/templates/recover.html:46 myweb/templates/signin.html:49
 msgid "¿Ya tienes cuenta?"
 msgstr "Ja tens un compte?"
 
-#: myweb/templates/recover.html:40 myweb/templates/signin.html:49
+#: myweb/templates/recover.html:46 myweb/templates/signin.html:49
 msgid "Inicia sesión aquí"
 msgstr "Inicia sessió aquí"
 
@@ -310,7 +877,7 @@ msgstr "Inicia sessió aquí"
 #, fuzzy
 #| msgid "Registrarse"
 msgid "Registro"
-msgstr "Registrar-se"
+msgstr "Registre"
 
 #: myweb/templates/signin.html:23
 msgid "¡Bienvenido!"
@@ -323,6 +890,10 @@ msgstr "Registra't per començar"
 #: myweb/templates/signin.html:29
 msgid "Nombre de usuario: "
 msgstr "Nom d'usuari: "
+
+#: myweb/templates/signin.html:33
+msgid "Correo electrónico: "
+msgstr "Correu electrònic: "
 
 #: myweb/templates/signin.html:37
 msgid "Contraseña: "
@@ -339,3 +910,193 @@ msgstr "Registrar-se"
 #: myweb/templates/signin.html:50
 msgid "¿Olvidaste tu contraseña?"
 msgstr "Has oblidat la teva contrasenya?"
+
+#: myweb/templates/terms_use.html:8 myweb/templates/terms_use.html:15
+#, fuzzy
+#| msgid "Términos y Condiciones de Uso"
+msgid "Términos de Uso"
+msgstr "Termes d'Ús"
+
+#: myweb/templates/terms_use.html:18
+msgid "Fecha de entrada en vigor: 27 de mayo de 2025"
+msgstr "Data d'entrada en vigor: 27 de maig de 2025"
+
+#: myweb/templates/terms_use.html:20
+msgid "1. Objetivo"
+msgstr "1. Objectiu"
+
+#: myweb/templates/terms_use.html:21
+msgid ""
+"Estos Términos de Uso regulan el acceso y uso de la plataforma Djangify "
+"(djangify.ieti.site), que ofrece un espacio de usuario con contenido "
+"exclusivo y descarga de código abierto para la generación de archivos models."
+"py y admin.py en proyectos Django."
+msgstr ""
+"Aquests Termes d'Ús regulen l'accés i ús de la plataforma Djangify "
+"(djangify.ieti.site), que ofereix un espai d'usuari amb contingut "
+"exclusiu i descàrrega de codi obert per a la generació d'arxius models."
+"py i admin.py en projectes Django."
+
+#: myweb/templates/terms_use.html:23
+msgid "2. Acceso y registro"
+msgstr "2. Accés i registre"
+
+#: myweb/templates/terms_use.html:25
+msgid ""
+"El acceso al contenido exclusivo requiere el registro previo de una cuenta "
+"de usuario."
+msgstr ""
+"L'accés al contingut exclusiu requereix el registre previ d'un compte "
+"d'usuari."
+
+#: myweb/templates/terms_use.html:26
+msgid ""
+"Para registrarse, el usuario debe proporcionar un correo electrónico válido "
+"y crear una contraseña."
+msgstr ""
+"Per registrar-se, l'usuari ha de proporcionar un correu electrònic vàlid "
+"i crear una contrasenya."
+
+#: myweb/templates/terms_use.html:27
+msgid ""
+"El usuario es responsable de mantener la confidencialidad de sus "
+"credenciales y notificar cualquier uso no autorizado."
+msgstr ""
+"L'usuari és responsable de mantenir la confidencialitat de les seves "
+"credencials i notificar qualsevol ús no autoritzat."
+
+#: myweb/templates/terms_use.html:30
+msgid "3. Suscripciones"
+msgstr "3. Subscripcions"
+
+#: myweb/templates/terms_use.html:31
+msgid ""
+"Al registrarse, el usuario puede optar por distintos planes de suscripción "
+"que dan acceso a funcionalidades avanzadas y contenido exclusivo. Las "
+"condiciones sobre precios, pagos y renovaciones aparecen detalladas en el "
+"panel de suscripciones."
+msgstr ""
+"En registrar-se, l'usuari pot optar per diferents plans de subscripció "
+"que donen accés a funcionalitats avançades i contingut exclusiu. Les "
+"condicions sobre preus, pagaments i renovacions apareixen detallades al "
+"panell de subscripcions."
+
+#: myweb/templates/terms_use.html:33
+msgid "4. Contenido exclusivo y código abierto"
+msgstr "4. Contingut exclusiu i codi obert"
+
+#: myweb/templates/terms_use.html:34
+msgid ""
+"El contenido exclusivo (tutoriales, guías y recursos avanzados) está "
+"disponible únicamente para usuarios suscritos. Sin embargo, el código fuente "
+"de la plataforma Djangify es completamente de código abierto y puede "
+"descargarse libremente desde nuestro repositorio en GitHub bajo la licencia "
+"MIT."
+msgstr ""
+"El contingut exclusiu (tutorials, guies i recursos avançats) està "
+"disponible únicament per a usuaris subscrits. No obstant això, el codi font "
+"de la plataforma Djangify és completament de codi obert i pot "
+"descarregar-se lliurement des del nostre repositori a GitHub sota la llicència "
+"MIT."
+
+#: myweb/templates/terms_use.html:36
+msgid "5. Uso aceptable"
+msgstr "5. Ús acceptable"
+
+#: myweb/templates/terms_use.html:37
+msgid ""
+"El usuario se compromete a utilizar la plataforma de forma lícita y "
+"adecuada, absteniéndose de:"
+msgstr ""
+"L'usuari es compromet a utilitzar la plataforma de forma lícita i "
+"adequada, abstenint-se de:"
+
+#: myweb/templates/terms_use.html:39
+msgid ""
+"Subir o compartir contenido ilegal, difamatorio, ofensivo o que infrinja "
+"derechos de terceros."
+msgstr ""
+"Pujar o compartir contingut il·legal, difamatori, ofensiu o que infringeixi "
+"drets de tercers."
+
+#: myweb/templates/terms_use.html:40
+msgid ""
+"Realizar spam, phishing, o cualquier actividad de carácter fraudulento o "
+"publicitario no autorizada."
+msgstr ""
+"Realitzar spam, phishing, o qualsevol activitat de caràcter fraudulent o "
+"publicitari no autoritzada."
+
+#: myweb/templates/terms_use.html:41
+msgid "Suplantar la identidad de otros usuarios o distribuir malware."
+msgstr "Suplantar la identitat d'altres usuaris o distribuir malware."
+
+#: myweb/templates/terms_use.html:44
+msgid "6. Propiedad intelectual"
+msgstr "6. Propietat intel·lectual"
+
+#: myweb/templates/terms_use.html:45
+msgid ""
+"Todos los derechos sobre la plataforma y el contenido exclusivo (textos, "
+"diseños, imágenes, código, etc.) son titularidad de Djangify, salvo aquellas "
+"partes expresamente indicadas como código abierto bajo licencias compatibles."
+msgstr ""
+"Tots els drets sobre la plataforma i el contingut exclusiu (textos, "
+"dissenys, imatges, codi, etc.) són titularitat de Djangify, excepte aquelles "
+"parts expressament indicades com a codi obert sota llicències compatibles."
+
+#: myweb/templates/terms_use.html:47
+msgid "7. Limitación de responsabilidad"
+msgstr "7. Limitació de responsabilitat"
+
+#: myweb/templates/terms_use.html:48
+msgid ""
+"Djangify no será responsable de los daños o perjuicios que puedan derivarse "
+"del uso de la plataforma, errores en el código proporcionado o "
+"interrupciones del servicio, salvo aquellos que por ley no puedan ser "
+"excluidos."
+msgstr ""
+"Djangify no serà responsable dels danys o perjudicis que puguin derivar-se "
+"de l'ús de la plataforma, errors en el codi proporcionat o "
+"interrupcions del servei, excepte aquells que per llei no puguin ser "
+"exclosos."
+
+#: myweb/templates/terms_use.html:50
+msgid "8. Modificaciones de los Términos"
+msgstr "8. Modificacions dels Termes"
+
+#: myweb/templates/terms_use.html:51
+msgid ""
+"Podremos actualizar estos Términos de Uso en cualquier momento. Publicaremos "
+"la versión vigente con su fecha de entrada en vigor. Es responsabilidad del "
+"usuario revisarlos periódicamente."
+msgstr ""
+"Podrem actualitzar aquests Termes d'Ús en qualsevol moment. Publicarem "
+"la versió vigent amb la seva data d'entrada en vigor. És responsabilitat de l'"
+"usuari revisar-los periòdicament."
+
+#: myweb/templates/terms_use.html:53
+msgid "9. Legislación aplicable y jurisdicción"
+msgstr "9. Legislació aplicable i jurisdicció"
+
+#: myweb/templates/terms_use.html:54
+msgid ""
+"Estos Términos se rigen por la legislación española. Para la resolución de "
+"cualquier controversia, las partes se someten a los Juzgados y Tribunales "
+"del domicilio del usuario."
+msgstr ""
+"Aquests Termes es regeixen per la legislació espanyola. Per a la resolució de "
+"qualsevol controvèrsia, les parts se sotmeten als Jutjats i Tribunals "
+"del domicili de l'usuari."
+
+#: myweb/templates/terms_use.html:56
+msgid "10. Contacto"
+msgstr "10. Contacte"
+
+#: myweb/templates/terms_use.html:57
+msgid ""
+"Para cualquier duda o reclamación relativa a estos Términos, puede "
+"contactarnos en:"
+msgstr ""
+"Per a qualsevol dubte o reclamació relativa a aquests Termes, podeu "
+"contactar-nos a:"

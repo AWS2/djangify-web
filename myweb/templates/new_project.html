@@ -14,7 +14,7 @@
     {% include 'partials/header.html' %}
 
     <main class="new_project-main">
-        <input type="text" id="project-name-visible" name="name" class="project-title-input" placeholder="Pon tu título aquí" required>
+        <input type="text" id="project-name-visible" name="name" class="project-title-input" placeholder="{% trans 'Pon tu título aquí' %}" required>
 
         <div class="chat-box">
             {% for msg in messages %}
@@ -22,12 +22,12 @@
                     <strong>{{ msg.role|title }}:</strong> {{ msg.content }}
                 </div>
             {% empty %}
-                <div class="chat-message assistant">Hola 👋, ¿en qué puedo ayudarte con tu proyecto?</div>
+                <div class="chat-message assistant">{% trans "Hola 👋, ¿en qué puedo ayudarte con tu proyecto?" %}</div>
             {% endfor %}
         </div>
 
         <div class="button-dashboard-group">
-            <textarea id="user-input" name="user_input" rows="3" placeholder="Escribe tu mensaje aquí..."></textarea>
+            <textarea id="user-input" name="user_input" rows="3" placeholder="{% trans 'Escribe tu mensaje aquí...' %}"></textarea>
 
             <div class="footer-buttons">
                 <a href="{% url 'dashboard' %}" class="btn_dashboard_link">{% trans "Volver" %}</a>

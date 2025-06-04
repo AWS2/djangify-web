@@ -431,6 +431,11 @@ button:hover {
     font-size: 20px;
 }
 
+.btn_home_link.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .home-aside {
     width: 40%;
     min-width: 250px;
@@ -661,6 +666,15 @@ button:hover {
     justify-content: center;
 }
 
+.legal-body {
+    background-color: #E6E6FA;
+    margin-top: 72px;
+    margin-bottom: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .legal-main {
     width: 80%;
     background-color: #A7C4FF;
@@ -702,6 +716,36 @@ button:hover {
     padding: 10px 20px;
     border-radius: 20px;
     font-size: 20px;
+}
+
+
+.dashboard-nav .profile_picture {
+    width: 96px;
+    height: 96px;
+    margin-right: 10px;
+    border-radius: 30%;
+}
+
+.blue-button {
+    background-color: #1b3a93;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+}
+
+.blue-button:hover {
+    background-color: #2b4cb8;
+}
+
+/* Posiciona el botón fuera del nav pero alineado a su derecha */
+.password-btn {
+    display: block;
+    margin: 10px 3.5% 0 auto; /* derecha alineada al nav */
 }
 
 .dashboard-nav img {
@@ -747,6 +791,34 @@ button:hover {
 .dashboard-header h1 {
     margin: 0;
     font-size: 32px;
+}
+
+/* Modal background */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0; width: 100%; height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+/* Modal contenido */
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    position: relative;
+}
+
+/* Botón cerrar */
+.close {
+    position: absolute;
+    right: 10px; top: 5px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .project-list {

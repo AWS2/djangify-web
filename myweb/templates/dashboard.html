@@ -8,6 +8,7 @@
     <title>{% trans "Dashboard" %}</title>
     <link rel="stylesheet" href="{% static 'scripts/styles.css' %}">
     <script src="{% static 'scripts/script.js' %}"></script>
+    <script src="{% static 'scripts/script_dashboard.js' %}"></script>
 </head>
 <body class="dashboard-body">
     {% include 'partials/header.html' %}
@@ -20,6 +21,23 @@
             <strong>{{ request.user.rol }}</strong>
         </p>
     </nav>
+
+    <button id="openChangePasswordBtn" class="blue-button password-btn">Cambiar contraseña</button>
+    <!-- Modal -->
+    <div id="changePasswordModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span id="closeModalBtn" class="close">&times;</span>
+            <h2>Cambiar contraseña</h2>
+            <form id="changePasswordForm" method="post" action="{% url 'change_password' %}">
+                {% csrf_token %}
+                <label for="password">Nueva contraseña:</label><br>
+                <input type="password" name="password" required><br><br>
+                <label for="password_confirm">Confirmar contraseña:</label><br>
+                <input type="password" name="password_confirm" required><br><br>
+                <button type="submit">Cambiar contraseña</button>
+            </form>
+        </div>
+    </div>
 
     <main class="dashboard-main">
         <div class="dashboard-header">

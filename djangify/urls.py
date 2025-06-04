@@ -36,11 +36,13 @@ urlpatterns += i18n_patterns(
     path('signin/', signin, name='signin'),
     path('dashboard/', dashboard, name='dashboard'),
     path('recover/', recover, name='recover'),
-    path('reset_password/', auth_views.PasswordResetView.as_view(template_name='reset_password.html'), name='reset_password'),
+    path('new_password/<int:uid>/<str:token>/', new_password, name='new_password'),
     path('cookies/', cookies, name='cookies'),
     path('terms_use/', terms_use, name='terms'),
     path('privacy/', privacy, name='privacy'),
     path('legal_advice/', legal_advice, name='legal_advice'),
     path('new_project/', new_project, name='new_project'),
-    path('delete_project/<uuid:project_id>/', delete_project, name='delete_project')
+    path('delete_project/<uuid:project_id>/', delete_project, name='delete_project'),
+    path('verify/<str:username>/', verify_user, name='verify_user'),
+    path('change-password/', change_password, name='change_password'),
 )
