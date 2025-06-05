@@ -4,7 +4,7 @@ import json
 from django.shortcuts import render, redirect, render, get_object_or_404
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import get_user_model, update_session_auth_hash
+from django.contrib.auth import get_user_model, update_session_auth_hash, logout
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from .models import Usuario, Project, Mail
@@ -142,8 +142,9 @@ def change_password(request):
             user = request.user
             user.set_password(password)
             user.save()
-            update_session_auth_hash(request, user)  # ✅ mantiene al usuario logueado
-            messages.success(request, "Contraseña cambiada correctamente.")
+            logout(request)  # 🔒 cierra la sesión del usuario
+            messages.success(request, "Contraseña cambiada correctamente. Por favor, inicia sesión nuevamente.")
+            return redirect('login')  # 🔁 redirige a la vista de login (ajusta el nombre si es distinto)
 
         return redirect('dashboard')
 
