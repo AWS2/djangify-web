@@ -325,12 +325,27 @@ def new_project(request):
         admin_code = request.POST.get('admin_code', '').strip()
 
         if name and models_code and admin_code:
-            Project.objects.create(
+            project = Project.objects.create(
                 user=request.user,
                 name=name,
                 models_code=models_code,
                 admin_code=admin_code
             )
+
+            # 2. Enviar datos a la API de FastAPI
+            try:
+                data = {
+                    "name": project.name,
+                    "models_code": project.models_code,
+                    "admin_code": project.admin_code,
+                }
+
+                response = requests.post(f"{env('URL_IA')}/receive_project/", json=data)
+                response.raise_for_status()  # Levanta excepción si hay error HTTP
+            except requests.RequestException as e:
+                print(f"Error enviando a FastAPI: {e}")
+                # Opcional: log, mostrar mensaje, etc.
+
             # Resetear la sesión del chat si quieres que se empiece de cero
             request.session['llama_chat'] = []
             return redirect('dashboard')

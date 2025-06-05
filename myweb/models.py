@@ -19,7 +19,7 @@ class Usuario(AbstractUser):
 class Project(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     models_code = models.TextField("Código de models.py", blank=True, null=True)
     admin_code = models.TextField("Código de admin.py", blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
