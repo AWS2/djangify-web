@@ -87,17 +87,22 @@ document.addEventListener("DOMContentLoaded", function () {
             const code = msg.dataset.code;
             if (!code) return;
 
-            // Solo analizamos bloques que contengan al menos 'admin.py'
-            if (code.includes('# admin.py')) {
-                const modelsMatch = code.match(/^([\s\S]*?)^\s*#\s*admin\.py\b/im);
-                const adminMatch = code.match(/^#\s*admin\.py\b[\s\n]*([\s\S]*)$/im);
+            const lines = code.split('\n');
+            const adminIndex = lines.findIndex(line => line.trim().match(/^#\s*admin\.py\b/));
 
-                modelsCode = modelsMatch ? modelsMatch[1].trim() : '';
-                adminCode = adminMatch ? adminMatch[1].trim() : '';
+            if (adminIndex !== -1) {
+                const modelsCodeLines = lines.slice(0, adminIndex);
+                const adminCodeLines = lines.slice(adminIndex + 1);
+    
+                modelsCode = modelsCodeLines.join('\n').trim();
+                adminCode = adminCodeLines.join('\n').trim();
+
+                console.log('--- MODELS ---\n' + modelsCode);
+                console.log('--- ADMIN ---\n' + adminCode);
             }
         });
 
-        document.getElementById('models_code').value = modelsCode;
+        document.getElementById('models_code').value = 'from django.db import models\n\n' + modelsCode;
         document.getElementById('admin_code').value = adminCode;
 
         console.log('MODELS:\n', modelsCode);

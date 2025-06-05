@@ -340,7 +340,7 @@ def new_project(request):
                     "admin_code": project.admin_code,
                 }
 
-                response = requests.post(f"{env('URL_IA')}/receive_project/", json=data)
+                response = requests.post(f"{env('URL_FASTAPI')}/receive_project/", json=data)
                 response.raise_for_status()  # Levanta excepción si hay error HTTP
             except requests.RequestException as e:
                 print(f"Error enviando a FastAPI: {e}")
