@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-04 23:27+0200\n"
+"POT-Creation-Date: 2025-06-05 15:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: English <en@li.org>\n"
@@ -41,10 +41,14 @@ msgid ""
 "                cada vez que regrese al sitio o navegue entre sus páginas."
 msgstr ""
 "Cookies are small text files that websites place on your browser to\n"
-"                improve user experience. Among other functions, they allow a site to remember\n"
-"                your actions and preferences (such as login, language, font size and other\n"
-"                settings) for a period of time, so you don't have to reconfigure them\n"
-"                every time you return to the site or navigate between its pages."
+"                improve user experience. Among other functions, they allow a "
+"site to remember\n"
+"                your actions and preferences (such as login, language, font "
+"size and other\n"
+"                settings) for a period of time, so you don't have to "
+"reconfigure them\n"
+"                every time you return to the site or navigate between its "
+"pages."
 
 #: myweb/templates/cookies.html:25
 msgid "¿Qué cookies utiliza djangify.ieti.site?"
@@ -63,8 +67,10 @@ msgid ""
 "                gestionar la sesión del usuario o proteger el sitio frente a "
 "ataques."
 msgstr ""
-"These cookies are essential for the proper functioning of the website and cannot\n"
-"                be disabled. They are used, for example, to remember your cookie consent,\n"
+"These cookies are essential for the proper functioning of the website and "
+"cannot\n"
+"                be disabled. They are used, for example, to remember your "
+"cookie consent,\n"
 "                manage user sessions or protect the site against attacks."
 
 #: myweb/templates/cookies.html:32
@@ -80,8 +86,10 @@ msgid ""
 "                los visitantes con el sitio y mejorar la experiencia de "
 "usuario."
 msgstr ""
-"This website uses <strong>Google Analytics</strong> to obtain anonymous statistics\n"
-"                about user navigation. With this information we can understand how visitors\n"
+"This website uses <strong>Google Analytics</strong> to obtain anonymous "
+"statistics\n"
+"                about user navigation. With this information we can "
+"understand how visitors\n"
 "                interact with the site and improve user experience."
 
 #: myweb/templates/cookies.html:36
@@ -90,7 +98,8 @@ msgid ""
 "visitadas, duración de la sesión, \n"
 "                navegador utilizado, entre otros."
 msgstr ""
-"Google collects data such as IP address (anonymously), pages visited, session duration,\n"
+"Google collects data such as IP address (anonymously), pages visited, "
+"session duration,\n"
 "                browser used, among others."
 
 #: myweb/templates/cookies.html:38
@@ -119,9 +128,12 @@ msgid ""
 "                cookies puede ser anonimizada y no puede rastrear su "
 "actividad en otros sitios web."
 msgstr ""
-"These cookies allow the site to remember choices you have made (such as your preferred language)\n"
-"                and provide enhanced and more personal features. Information collected by these\n"
-"                cookies may be anonymized and cannot track your activity on other websites."
+"These cookies allow the site to remember choices you have made (such as your "
+"preferred language)\n"
+"                and provide enhanced and more personal features. Information "
+"collected by these\n"
+"                cookies may be anonymized and cannot track your activity on "
+"other websites."
 
 #: myweb/templates/cookies.html:52
 msgid "4. Cookies de redes sociales (GitHub)"
@@ -137,9 +149,12 @@ msgid ""
 "nuestros enlaces. Recomendamos consultar \n"
 "                su política de privacidad para más información:"
 msgstr ""
-"At Djangify we provide links to our official <strong>GitHub</strong> account. Although\n"
-"                we do not use embedded integrations that install cookies directly, GitHub may collect\n"
-"                information about your interaction if you access through our links. We recommend consulting\n"
+"At Djangify we provide links to our official <strong>GitHub</strong> "
+"account. Although\n"
+"                we do not use embedded integrations that install cookies "
+"directly, GitHub may collect\n"
+"                information about your interaction if you access through our "
+"links. We recommend consulting\n"
 "                their privacy policy for more information:"
 
 #: myweb/templates/cookies.html:61
@@ -156,9 +171,12 @@ msgid ""
 "persistentes). No utilizamos cookies \n"
 "                con una duración mayor a la estrictamente necesaria."
 msgstr ""
-"The duration of cookie storage depends on the specific type. Some are automatically deleted\n"
-"                when closing the browser (session cookies), while others may\n"
-"                remain for a longer period (persistent cookies). We do not use cookies\n"
+"The duration of cookie storage depends on the specific type. Some are "
+"automatically deleted\n"
+"                when closing the browser (session cookies), while others "
+"may\n"
+"                remain for a longer period (persistent cookies). We do not "
+"use cookies\n"
 "                with a duration longer than strictly necessary."
 
 #: myweb/templates/cookies.html:67
@@ -173,8 +191,10 @@ msgid ""
 "funciones podrían dejar de estar \n"
 "                disponibles."
 msgstr ""
-"You can configure your browser to block or delete cookies. However, this may\n"
-"                affect your experience on the website, as some functions may no longer be\n"
+"You can configure your browser to block or delete cookies. However, this "
+"may\n"
+"                affect your experience on the website, as some functions may "
+"no longer be\n"
 "                available."
 
 #: myweb/templates/cookies.html:71
@@ -208,8 +228,10 @@ msgid ""
 "                mostrará un aviso emergente sobre el uso de cookies. En "
 "dicho aviso, usted podrá:"
 msgstr ""
-"When accessing our website <strong>djangify.ieti.site</strong> for the first time, you will be\n"
-"                shown a pop-up notice about the use of cookies. In this notice, you can:"
+"When accessing our website <strong>djangify.ieti.site</strong> for the first "
+"time, you will be\n"
+"                shown a pop-up notice about the use of cookies. In this "
+"notice, you can:"
 
 #: myweb/templates/cookies.html:83 myweb/templates/home.html:16
 msgid "Aceptar"
@@ -236,8 +258,10 @@ msgid ""
 "34/2002 (LSSI-CE)."
 msgstr ""
 "This consent system ensures that no cookie that is not\n"
-"                strictly necessary will be installed in your browser without your prior authorization,\n"
-"                in compliance with Regulation (EU) 2016/679 (GDPR) and Law 34/2002 (LSSI-CE)."
+"                strictly necessary will be installed in your browser without "
+"your prior authorization,\n"
+"                in compliance with Regulation (EU) 2016/679 (GDPR) and Law "
+"34/2002 (LSSI-CE)."
 
 #: myweb/templates/cookies.html:89
 msgid ""
@@ -246,7 +270,8 @@ msgid ""
 "                de configuración disponible en el pie de página o a través "
 "de la configuración de su navegador."
 msgstr ""
-"You can modify or withdraw your consent at any time by accessing the configuration panel\n"
+"You can modify or withdraw your consent at any time by accessing the "
+"configuration panel\n"
 "                available in the footer or through your browser settings."
 
 #: myweb/templates/cookies.html:92
@@ -260,30 +285,49 @@ msgid ""
 "                técnicos o por decisiones internas. Le recomendamos revisar "
 "esta página periódicamente."
 msgstr ""
-"We may modify this Cookie Policy at any time to adapt it to legislative changes,\n"
-"                technical changes or internal decisions. We recommend reviewing this page periodically."
+"We may modify this Cookie Policy at any time to adapt it to legislative "
+"changes,\n"
+"                technical changes or internal decisions. We recommend "
+"reviewing this page periodically."
 
 #: myweb/templates/dashboard.html:8
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: myweb/templates/dashboard.html:43
+#: myweb/templates/dashboard.html:28 myweb/templates/dashboard.html:35
+#: myweb/templates/dashboard.html:42
+msgid "Cambiar contraseña"
+msgstr "Change password"
+
+#: myweb/templates/dashboard.html:38 myweb/templates/new_password.html:33
+#, fuzzy
+#| msgid "Recuperar contraseña:"
+msgid "Nueva contraseña:"
+msgstr "New password:"
+
+#: myweb/templates/dashboard.html:40 myweb/templates/new_password.html:36
+#, fuzzy
+#| msgid "Confirmar contraseña: "
+msgid "Confirmar contraseña:"
+msgstr "Confirm password:"
+
+#: myweb/templates/dashboard.html:49
 msgid "Proyectos"
 msgstr "Projects"
 
-#: myweb/templates/dashboard.html:46 myweb/templates/home.html:29
+#: myweb/templates/dashboard.html:52 myweb/templates/home.html:29
 msgid "Crea tu proyecto"
 msgstr "Create your project"
 
-#: myweb/templates/dashboard.html:49
+#: myweb/templates/dashboard.html:55
 msgid "Límite alcanzado"
 msgstr "Limit reached"
 
-#: myweb/templates/dashboard.html:54
+#: myweb/templates/dashboard.html:60
 msgid "Aun no estas validado"
 msgstr "You are not yet validated"
 
-#: myweb/templates/dashboard.html:80
+#: myweb/templates/dashboard.html:86
 msgid "Todavía no hay proyectos"
 msgstr "There are no projects yet"
 
@@ -295,7 +339,9 @@ msgstr "Home"
 msgid ""
 "Este sitio utiliza cookies para mejorar tu experiencia. ¿Aceptas el uso de "
 "cookies?"
-msgstr "This site uses cookies to improve your experience. Do you accept the use of cookies?"
+msgstr ""
+"This site uses cookies to improve your experience. Do you accept the use of "
+"cookies?"
 
 #: myweb/templates/home.html:23 myweb/templates/new_password.html:22
 msgid "Logo Djangify"
@@ -311,8 +357,8 @@ msgid ""
 "produccion de Djangos a traves de la utilizacion de herramientas IA y "
 "contenedores Docker."
 msgstr ""
-"is a tool that simplifies the process of creating and deploying Django applications to production "
-"through the use of AI tools and Docker containers."
+"is a tool that simplifies the process of creating and deploying Django "
+"applications to production through the use of AI tools and Docker containers."
 
 #: myweb/templates/home.html:30
 msgid "Source Code"
@@ -332,11 +378,13 @@ msgid ""
 "puede centrarse en desarrollar valor, mientras la plataforma se encarga de "
 "la configuración, la seguridad y la infraestructura."
 msgstr ""
-"This project represents an innovative commitment to intelligent automation of secure deployment "
-"of Django-based web applications. The objective is clear: to reduce the technical complexity "
-"that usually comes with putting an application into production, and make it possible with the "
-"help of artificial intelligence. Thanks to this solution, any technical team can focus on "
-"developing value, while the platform takes care of configuration, security and infrastructure."
+"This project represents an innovative commitment to intelligent automation "
+"of secure deployment of Django-based web applications. The objective is "
+"clear: to reduce the technical complexity that usually comes with putting an "
+"application into production, and make it possible with the help of "
+"artificial intelligence. Thanks to this solution, any technical team can "
+"focus on developing value, while the platform takes care of configuration, "
+"security and infrastructure."
 
 #: myweb/templates/home.html:40
 msgid ""
@@ -348,11 +396,12 @@ msgid ""
 "ayuda a mantener buenas prácticas y coherencia en toda la arquitectura del "
 "sistema."
 msgstr ""
-"The developed tool allows generating complete Django projects in an assisted way, including "
-"the creation of models and administration panels, all with support from a local AI —based on "
-"marIA— that guides and speeds up each step through customized prompts and automated code "
-"generation. This AI not only accelerates development, but also helps maintain good practices "
-"and consistency throughout the system architecture."
+"The developed tool allows generating complete Django projects in an assisted "
+"way, including the creation of models and administration panels, all with "
+"support from a local AI —based on marIA— that guides and speeds up each step "
+"through customized prompts and automated code generation. This AI not only "
+"accelerates development, but also helps maintain good practices and "
+"consistency throughout the system architecture."
 
 #: myweb/templates/home.html:41
 msgid ""
@@ -362,10 +411,11 @@ msgid ""
 "automatización como Ansible y GitHub Actions, que garantizan un flujo CI/CD "
 "robusto y reproducible desde el primer commit hasta la producción."
 msgstr ""
-"Once the application is generated, the system automates its containerization using Docker, "
-"and its subsequent secure deployment in scalable environments such as Docker Swarm or "
-"Kubernetes. Modern automation tools such as Ansible and GitHub Actions are incorporated, "
-"which guarantee a robust and reproducible CI/CD flow from the first commit to production."
+"Once the application is generated, the system automates its containerization "
+"using Docker, and its subsequent secure deployment in scalable environments "
+"such as Docker Swarm or Kubernetes. Modern automation tools such as Ansible "
+"and GitHub Actions are incorporated, which guarantee a robust and "
+"reproducible CI/CD flow from the first commit to production."
 
 #: myweb/templates/home.html:42
 msgid ""
@@ -376,10 +426,11 @@ msgid ""
 "sensibles con GPG y validación automatizada de los requisitos de seguridad "
 "antes de cada despliegue."
 msgstr ""
-"Security is a fundamental pillar of the project. Tools such as OWASP ZAP, Nmap and Metasploit "
-"are integrated for vulnerability scanning and controlled penetration testing. Additionally, "
-"a protection system based on firewalls (iptables/UFW), encryption of sensitive data with GPG "
-"and automated validation of security requirements before each deployment is configured."
+"Security is a fundamental pillar of the project. Tools such as OWASP ZAP, "
+"Nmap and Metasploit are integrated for vulnerability scanning and controlled "
+"penetration testing. Additionally, a protection system based on firewalls "
+"(iptables/UFW), encryption of sensitive data with GPG and automated "
+"validation of security requirements before each deployment is configured."
 
 #: myweb/templates/home.html:43
 msgid ""
@@ -390,10 +441,11 @@ msgid ""
 "diseñado para facilitar la escalabilidad y la gestión profesional de "
 "aplicaciones Django en producción."
 msgstr ""
-"The ecosystem is completed with a real-time monitoring solution using Prometheus and Grafana, "
-"which allows for a clear view of system performance and security. From creating custom domains "
-"to orchestrating multiple services, everything is designed to facilitate scalability and "
-"professional management of Django applications in production."
+"The ecosystem is completed with a real-time monitoring solution using "
+"Prometheus and Grafana, which allows for a clear view of system performance "
+"and security. From creating custom domains to orchestrating multiple "
+"services, everything is designed to facilitate scalability and professional "
+"management of Django applications in production."
 
 #: myweb/templates/home.html:44
 msgid ""
@@ -405,11 +457,12 @@ msgid ""
 "aplicaciones web, ofreciendo una experiencia segura, automatizada y "
 "preparada para los desafíos del mundo real."
 msgstr ""
-"This project is not just a technical tool; it is an educational, collaborative and powerful "
-"platform that demonstrates how artificial intelligence can be naturally integrated into the "
-"modern software development lifecycle. With a practical and results-focused approach, the "
-"system seeks to revolutionize the way web applications are deployed, offering a secure, "
-"automated experience prepared for real-world challenges."
+"This project is not just a technical tool; it is an educational, "
+"collaborative and powerful platform that demonstrates how artificial "
+"intelligence can be naturally integrated into the modern software "
+"development lifecycle. With a practical and results-focused approach, the "
+"system seeks to revolutionize the way web applications are deployed, "
+"offering a secure, automated experience prepared for real-world challenges."
 
 #: myweb/templates/home.html:47 myweb/templates/new_password.html:17
 msgid "Imagen de bienvenida"
@@ -434,8 +487,9 @@ msgid ""
 "sociedad de la información y de comercio electrónico (LSSI-CE), se informa "
 "que este sitio web pertenece a:"
 msgstr ""
-"In compliance with Law 34/2002, of July 11, on information society services and electronic "
-"commerce (LSSI-CE), it is reported that this website belongs to:"
+"In compliance with Law 34/2002, of July 11, on information society services "
+"and electronic commerce (LSSI-CE), it is reported that this website belongs "
+"to:"
 
 #: myweb/templates/legal_advice.html:21
 msgid "Nombre de la plataforma: Djangify"
@@ -463,11 +517,11 @@ msgid ""
 "objetivo es ofrecer herramientas, contenido formativo y recursos para el "
 "desarrollo de proyectos con Django."
 msgstr ""
-"This Legal Notice regulates the use of the website djangify.ieti.site, whose objective is to "
-"offer tools, educational content and resources for developing projects with Django."
+"This Legal Notice regulates the use of the website djangify.ieti.site, whose "
+"objective is to offer tools, educational content and resources for "
+"developing projects with Django."
 
 #: myweb/templates/legal_advice.html:30
-#| msgid "Términos y Condiciones de Uso"
 msgid "3. Condiciones de uso"
 msgstr "3. Terms of use"
 
@@ -479,10 +533,11 @@ msgid ""
 "del sitio y a no llevar a cabo actividades ilícitas, fraudulentas o que "
 "infrinjan derechos de terceros."
 msgstr ""
-"Access and use of the website implies acceptance of these conditions, as well as the Terms of "
-"Use and, where applicable, the Privacy and Cookie Policy. The user undertakes to make proper "
-"use of the site and not to carry out illicit, fraudulent activities or activities that infringe "
-"the rights of third parties."
+"Access and use of the website implies acceptance of these conditions, as "
+"well as the Terms of Use and, where applicable, the Privacy and Cookie "
+"Policy. The user undertakes to make proper use of the site and not to carry "
+"out illicit, fraudulent activities or activities that infringe the rights of "
+"third parties."
 
 #: myweb/templates/legal_advice.html:33
 msgid "4. Propiedad intelectual"
@@ -495,9 +550,9 @@ msgid ""
 "código abierto debidamente indicadas. Queda prohibida su reproducción, "
 "distribución o uso no autorizado."
 msgstr ""
-"All site content (texts, images, code, design, etc.) are the property of their owners, except "
-"those published under properly indicated open source licenses. Their reproduction, distribution "
-"or unauthorized use is prohibited."
+"All site content (texts, images, code, design, etc.) are the property of "
+"their owners, except those published under properly indicated open source "
+"licenses. Their reproduction, distribution or unauthorized use is prohibited."
 
 #: myweb/templates/legal_advice.html:36
 msgid "5. Responsabilidad"
@@ -509,8 +564,9 @@ msgid ""
 "interrupciones del servicio o daños derivados del uso del sitio, salvo "
 "disposición legal en contrario."
 msgstr ""
-"Djangify is not responsible for possible errors in content, service interruptions or damages "
-"arising from the use of the site, except as otherwise provided by law."
+"Djangify is not responsible for possible errors in content, service "
+"interruptions or damages arising from the use of the site, except as "
+"otherwise provided by law."
 
 #: myweb/templates/legal_advice.html:39
 msgid "6. Enlaces externos"
@@ -521,8 +577,8 @@ msgid ""
 "En el sitio pueden incluirse enlaces a páginas externas. Djangify no se "
 "responsabiliza del contenido ni del funcionamiento de dichas páginas."
 msgstr ""
-"The site may include links to external pages. Djangify is not responsible for the content or "
-"operation of such pages."
+"The site may include links to external pages. Djangify is not responsible "
+"for the content or operation of such pages."
 
 #: myweb/templates/legal_advice.html:42
 msgid "7. Legislación aplicable"
@@ -534,8 +590,8 @@ msgid ""
 "las partes se someterán a los juzgados y tribunales del domicilio del "
 "usuario."
 msgstr ""
-"This notice is governed by Spanish legislation. For any dispute, the parties will submit to "
-"the courts and tribunals of the user's domicile."
+"This notice is governed by Spanish legislation. For any dispute, the parties "
+"will submit to the courts and tribunals of the user's domicile."
 
 #: myweb/templates/login.html:8 myweb/templates/login.html:29
 msgid "Iniciar sesión"
@@ -570,18 +626,6 @@ msgstr "Recover password"
 #| msgid "Recuperar contraseña"
 msgid "Restablecer contraseña"
 msgstr "Reset password"
-
-#: myweb/templates/new_password.html:33
-#, fuzzy
-#| msgid "Recuperar contraseña:"
-msgid "Nueva contraseña:"
-msgstr "New password:"
-
-#: myweb/templates/new_password.html:36
-#, fuzzy
-#| msgid "Confirmar contraseña: "
-msgid "Confirmar contraseña:"
-msgstr "Confirm password:"
 
 #: myweb/templates/new_password.html:39
 #, fuzzy
@@ -718,14 +762,12 @@ msgstr "The legal basis for processing your data is:"
 #: myweb/templates/privacy.html:43
 msgid ""
 "Su consentimiento, otorgado al registrarse o al aceptar el uso de cookies."
-msgstr ""
-"Your consent, given when registering or accepting the use of cookies."
+msgstr "Your consent, given when registering or accepting the use of cookies."
 
 #: myweb/templates/privacy.html:44
 msgid ""
 "La ejecución de un contrato, en el caso del uso de la funcionalidad de login."
-msgstr ""
-"Contract performance, in the case of using the login functionality."
+msgstr "Contract performance, in the case of using the login functionality."
 
 #: myweb/templates/privacy.html:45
 msgid ""
@@ -740,7 +782,8 @@ msgstr "5. Data Recipients"
 
 #: myweb/templates/privacy.html:49
 msgid "No se cederán datos a terceros, salvo obligación legal."
-msgstr "Data will not be transferred to third parties, except under legal obligation."
+msgstr ""
+"Data will not be transferred to third parties, except under legal obligation."
 
 #: myweb/templates/privacy.html:50
 msgid "El único tercero con acceso a datos es:"
@@ -750,8 +793,7 @@ msgstr "The only third party with access to data is:"
 msgid ""
 "Google LLC, a través del servicio Google Analytics (ver política de "
 "privacidad: "
-msgstr ""
-"Google LLC, through the Google Analytics service (see privacy policy: "
+msgstr "Google LLC, through the Google Analytics service (see privacy policy: "
 
 #: myweb/templates/privacy.html:54
 msgid ""

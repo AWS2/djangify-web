@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-04 23:27+0200\n"
+"POT-Creation-Date: 2025-06-05 15:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -299,23 +299,36 @@ msgstr ""
 msgid "Dashboard"
 msgstr "Panel de Control"
 
-#: myweb/templates/dashboard.html:43
+#: myweb/templates/dashboard.html:28 myweb/templates/dashboard.html:35
+#: myweb/templates/dashboard.html:42
+msgid "Cambiar contraseña"
+msgstr "Cambiar contraseña"
+
+#: myweb/templates/dashboard.html:38 myweb/templates/new_password.html:33
+msgid "Nueva contraseña:"
+msgstr "Nueva contraseña:"
+
+#: myweb/templates/dashboard.html:40 myweb/templates/new_password.html:36
+msgid "Confirmar contraseña:"
+msgstr "Confirmar contraseña:"
+
+#: myweb/templates/dashboard.html:49
 msgid "Proyectos"
 msgstr "Proyectos"
 
-#: myweb/templates/dashboard.html:46 myweb/templates/home.html:29
+#: myweb/templates/dashboard.html:52 myweb/templates/home.html:29
 msgid "Crea tu proyecto"
 msgstr "Crea tu proyecto"
 
-#: myweb/templates/dashboard.html:49
+#: myweb/templates/dashboard.html:55
 msgid "Límite alcanzado"
 msgstr "Límite alcanzado"
 
-#: myweb/templates/dashboard.html:54
+#: myweb/templates/dashboard.html:60
 msgid "Aun no estas validado"
 msgstr "Aún no estás validado"
 
-#: myweb/templates/dashboard.html:80
+#: myweb/templates/dashboard.html:86
 msgid "Todavía no hay proyectos"
 msgstr "Todavía no hay proyectos"
 
@@ -623,14 +636,6 @@ msgstr "Recuperar contraseña"
 #| msgid "Recuperar contraseña"
 msgid "Restablecer contraseña"
 msgstr "Restablecer contraseña"
-
-#: myweb/templates/new_password.html:33
-msgid "Nueva contraseña:"
-msgstr "Nueva contraseña:"
-
-#: myweb/templates/new_password.html:36
-msgid "Confirmar contraseña:"
-msgstr "Confirmar contraseña:"
 
 #: myweb/templates/new_password.html:39
 msgid "Guardar contraseña"
