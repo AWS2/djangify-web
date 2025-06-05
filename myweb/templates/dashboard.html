@@ -14,27 +14,32 @@
     {% include 'partials/header.html' %}
     <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
 
-    <nav class="dashboard-nav">
-        <img src="{% static 'assets/profile_picture.png' %}" alt="Profile Picture" class="profile_picture">
-        <p>
-            {{ request.user.username }}<br>
-            <strong>{{ request.user.rol }}</strong>
-        </p>
-    </nav>
+    <div class="dashboard-wrapper">
+        <nav class="dashboard-nav">
+            <div class="user-info">
+                <img src="{% static 'assets/profile_picture.png' %}" alt="Profile Picture" class="profile_picture">
+                <p>
+                    {{ request.user.username }}<br>
+                    <strong>{{ request.user.rol }}</strong>
+                </p>
+            </div>
+        </nav>
 
-    <button id="openChangePasswordBtn" class="blue-button password-btn">Cambiar contraseña</button>
+        <button id="openChangePasswordBtn" class="blue-button">{% trans "Cambiar contraseña" %}</button>
+    </div>
+
     <!-- Modal -->
-    <div id="changePasswordModal" class="modal" style="display:none;">
+    <div id="changePasswordModal" class="modal">
         <div class="modal-content">
             <span id="closeModalBtn" class="close">&times;</span>
-            <h2>Cambiar contraseña</h2>
+            <h2>{% trans "Cambiar contraseña" %}</h2>
             <form id="changePasswordForm" method="post" action="{% url 'change_password' %}">
                 {% csrf_token %}
-                <label for="password">Nueva contraseña:</label><br>
+                <label for="password">{% trans "Nueva contraseña:" %}</label><br>
                 <input type="password" name="password" required><br><br>
-                <label for="password_confirm">Confirmar contraseña:</label><br>
+                <label for="password_confirm">{% trans "Confirmar contraseña:" %}</label><br>
                 <input type="password" name="password_confirm" required><br><br>
-                <button type="submit">Cambiar contraseña</button>
+                <button type="submit">{% trans "Cambiar contraseña" %}</button>
             </form>
         </div>
     </div>

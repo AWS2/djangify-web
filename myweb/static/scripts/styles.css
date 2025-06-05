@@ -706,20 +706,29 @@ button:hover {
     text-decoration: none;
 }
 
+.dashboard-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 100px 4% 0 4%;
+}
+
 .dashboard-nav {
     background-color: #A7C4FF;
     color: #3a3a3a;
     display: flex;
-    justify-content: space-between; /* separa izquierda/derecha */
     align-items: center;
-    margin: 100px 85% 0 3.5%;
     padding: 10px 20px;
     border-radius: 20px;
     font-size: 20px;
 }
 
+.user-info {
+    display: flex;
+    align-items: center;
+}
 
-.dashboard-nav .profile_picture {
+.profile_picture {
     width: 96px;
     height: 96px;
     margin-right: 10px;
@@ -740,12 +749,6 @@ button:hover {
 
 .blue-button:hover {
     background-color: #2b4cb8;
-}
-
-/* Posiciona el botón fuera del nav pero alineado a su derecha */
-.password-btn {
-    display: block;
-    margin: 10px 3.5% 0 auto; /* derecha alineada al nav */
 }
 
 .dashboard-nav img {
@@ -793,32 +796,107 @@ button:hover {
     font-size: 32px;
 }
 
-/* Modal background */
+/* Fondo del modal (cubre toda la pantalla) */
 .modal {
-    position: fixed;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    display: none; /* oculto por defecto */
+    justify-content: center;
+    align-items: center;
+
     z-index: 1000;
-    left: 0; top: 0; width: 100%; height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.5);
 }
 
-/* Modal contenido */
 .modal-content {
-    background-color: #fefefe;
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 5px;
-    width: 300px;
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
     position: relative;
+    top: 30%;
+    left: 35%;
 }
 
-/* Botón cerrar */
+/* Animación de entrada suave */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Botón de cerrar */
 .close {
     position: absolute;
-    right: 10px; top: 5px;
+    top: 12px;
+    right: 16px;
     font-size: 28px;
     font-weight: bold;
+    color: #333;
     cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #1b3a93;
+}
+
+/* Títulos y etiquetas */
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #1b3a93;
+}
+
+.modal-content label {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Campos de entrada */
+.modal-content input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 6px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.modal-content input[type="password"]:focus {
+    border-color: #1b3a93;
+    outline: none;
+}
+
+/* Botón enviar */
+.modal-content button[type="submit"] {
+    background-color: #1b3a93;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button[type="submit"]:hover {
+    background-color: #2b4cb8;
 }
 
 .project-list {
@@ -1070,4 +1148,58 @@ pre code {
     background-color: #b0aee0;
     cursor: not-allowed;
     opacity: 0.6;
+}
+
+.new_password-container {
+    display: flex;
+    height: calc(100vh - 72px);
+    
+}
+
+.new_password-aside {
+    flex: 1;
+}
+
+.new_password-aside img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.new_password-main {
+    background-color: #E6E6FA;
+    margin-top: 72px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.new_password-box {
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+    background-color: #A7C4FF;
+    padding-bottom: 20px;
+}
+
+.new_password-box h1 {
+    margin: 15px 0 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.new_password-body form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new_password-body input[type="text"], .new_password-body input[type="password"]{
+    padding: 10px;
+    font-size: 16px;
+    width: 80%;
+    box-sizing: border-box;
+    display: block;
+    margin-top: 10px;
 }

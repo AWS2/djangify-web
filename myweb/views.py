@@ -207,7 +207,7 @@ def new_password(request, uid, token):
             messages.success(request, "Contraseña restablecida correctamente.")
             return redirect('login')
 
-    return render(request, 'reset_password.html', {'user': user})
+    return render(request, 'new_password.html', {'user': user})
 
 @require_POST
 @login_required
