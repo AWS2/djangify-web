@@ -5,20 +5,20 @@
 Install the dependencies. Possibly, they are already installed (you don't need to be inside the venv):
 
 ```
-$ sudo apt install gcc build-essential python3-dev`
+sudo apt install gcc build-essential python3-dev
 ```
 
 Install uWSGI inside the venv and check the basic operation in HTTP mode
 
 ```
-(env) $ pip install uwsgi
-(env) $ uwsgi --http :8000 --module djangify.wsgi --master --buffer-size 32768
+pip install uwsgi
+uwsgi --http :8000 --module djangify.wsgi --master --buffer-size 32768
 ```
 
 As we have added a new package to the project (uwsgi), we will need to update it in the requirements file:
 
 ```
-(env) $ pip freeze > requirements.txt
+pip freeze > requirements.txt
 ```
 
 ## Web server Nginx
@@ -26,7 +26,7 @@ As we have added a new package to the project (uwsgi), we will need to update it
 To serve static files, the web server is not needed, as it is more efficient than Django itself, which must remain to execute dynamic code. In this case, Nginx will be used as the web server:
 
 ```
-$ sudo apt install nginx
+sudo apt install nginx
 ```
 
 Verify that Nginx is working by visiting http://localhost
@@ -44,13 +44,13 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'myweb/static'),]
 Now you can compile the static files, which will remain in the static/ folder:
 
 ```
-(env) $ python3 manage.py collectstatic
+python3 manage.py collectstatic
 ```
 
 Proceed to configure Nginx. Before doing so, make a backup of the default configuration file:
 
 ```
-$ sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bkp
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bkp
 ```
 
 Enter the `default` file with the configuration adapted from the official uWSGI documentation. Remember that Nginx has to be listening on port 80 and redirecting requests to uWSGI on port 8001:
@@ -88,7 +88,7 @@ server {
 Restart Nginx:
 
 ```
-$ sudo systemctl restart nginx.service
+sudo systemctl restart nginx.service
 ```
 
 If you now visit localhost you should get a 502 Bad Gateway code, as uWSGI is not started on port 8001 as indicated in the configuration file. Nginx is running, but it is waiting to find the uWSGI application server which is not yet running.
@@ -96,13 +96,13 @@ If you now visit localhost you should get a 502 Bad Gateway code, as uWSGI is no
 Launch the web application with uWSGI on port 8001:
 
 ```
-(env) $ uwsgi --socket :8001 --module djangify.wsgi --master --buffer-size 32768
+uwsgi --socket :8001 --module djangify.wsgi --master --buffer-size 32768
 ```
 
 If the CSS files are still not displayed, examine one of them by visiting the CSS file with the browser. If it gives a 403 Forbidden error, it is probably due to the file system, which does not allow Nginx to enter the Django project folder. If you are in IsardVDI you can solve it with:
 
 ```
-$ chmod 755 ~
+chmod 755 ~
 ```
 
 Reload the page and see if it works now.
@@ -116,7 +116,7 @@ The website is now working, but it does not start when the machine boots, since 
 Install supervisord:
 
 ```
-$ sudo apt install supervisor
+sudo apt install supervisor
 ```
 
 Edit the configuration file for our app:
@@ -131,13 +131,13 @@ command=/home/super/env/bin/uwsgi --socket :8001 --module djangify.wsgi --master
 Supervisord needs to be reloaded:
 
 ```
-$ sudo supervisorctl reload
+sudo supervisorctl reload
 ```
 
 Check if it is running:
 
 ```
-$ sudo supervisorctl status
+sudo supervisorctl status
 ```
 
 If something doesn't work as expected, analyze the logs:
